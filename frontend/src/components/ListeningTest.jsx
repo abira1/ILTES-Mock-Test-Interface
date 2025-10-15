@@ -5,14 +5,25 @@ import FirebaseAuthService from '../services/FirebaseAuthService';
 import { useAuth } from '../contexts/AuthContext';
 import { Clock, Volume2, ChevronLeft, ChevronRight, HelpCircle, EyeOff, User } from 'lucide-react';
 import HighlightManager from '../lib/HighlightManager';
-import { MatchingDraggable } from './questions/MatchingDraggable';
-import { MultipleChoiceMultiple } from './questions/MultipleChoiceMultiple';
-import { FormCompletion } from './questions/FormCompletion';
-import { NoteCompletion } from './questions/NoteCompletion';
-import { TableCompletion } from './questions/TableCompletion';
-import { FlowchartCompletion } from './questions/FlowchartCompletion';
-import { SummaryCompletion } from './questions/SummaryCompletion';
+
+// QTI Question Type Components
+import { 
+  FillInGaps,
+  FillInGapsShortAnswers,
+  MultipleChoiceSingle,
+  MultipleChoiceMultiple,
+  FormCompletion,
+  MapLabeling,
+  Matching,
+  SentenceCompletion,
+  TableCompletion,
+  FlowchartCompletion,
+  getQTIListeningComponent
+} from './questions/qti';
+
 import '../styles/navigation.css';
+import '../styles/qti-base.css';
+import '../styles/qti-listening.css';
 
 export function ListeningTest({ examId, audioRef }) {
   const navigate = useNavigate();
