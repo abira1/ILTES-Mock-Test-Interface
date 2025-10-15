@@ -1284,9 +1284,9 @@ def test_fresh_qti_listening_system():
     results = {}
     qti_exam_id = "fresh-qti-listening-test"
     
-    # Test 1: QTI Listening Test Availability
-    print_info("\n--- Test 1: QTI Listening Test Availability ---")
-    print_info("Testing: GET /api/exams/published should include 'qti-listening-practice-test-1'")
+    # Test 1: Fresh QTI Listening Test Availability
+    print_info("\n--- Test 1: Fresh QTI Listening Test Availability ---")
+    print_info("Testing: GET /api/exams/published should include 'fresh-qti-listening-test'")
     
     try:
         response = requests.get(f"{BACKEND_URL}/exams/published", timeout=10)
@@ -1295,7 +1295,7 @@ def test_fresh_qti_listening_system():
             print_success(f"✅ Published exams retrieved - Status: {response.status_code}")
             print_info(f"Found {len(published_exams)} published exams")
             
-            # Check if QTI exam exists
+            # Check if Fresh QTI exam exists
             qti_exam_found = False
             qti_exam_data = None
             for exam in published_exams:
@@ -1305,14 +1305,15 @@ def test_fresh_qti_listening_system():
                     break
             
             if qti_exam_found:
-                print_success(f"✅ QTI Listening Test found: '{qti_exam_data.get('title')}'")
+                print_success(f"✅ Fresh QTI Listening Test found: '{qti_exam_data.get('title')}'")
                 print_info(f"Exam ID: {qti_exam_data.get('id')}")
                 print_info(f"Exam type: {qti_exam_data.get('exam_type')}")
-                print_info(f"Duration: {qti_exam_data.get('duration_seconds')} seconds")
+                print_info(f"Duration: {qti_exam_data.get('duration_seconds')} seconds ({qti_exam_data.get('duration_seconds', 0) // 60} minutes)")
                 print_info(f"Question count: {qti_exam_data.get('question_count')}")
+                print_info(f"Audio URL: {qti_exam_data.get('audio_url', 'None')}")
                 results['qti_exam_availability'] = True
             else:
-                print_error("❌ QTI Listening Test 'qti-listening-practice-test-1' not found in published exams")
+                print_error(f"❌ Fresh QTI Listening Test '{qti_exam_id}' not found in published exams")
                 print_info("Available exams:")
                 for exam in published_exams[:5]:
                     print_info(f"  - {exam.get('id')}: {exam.get('title')}")
@@ -1321,7 +1322,7 @@ def test_fresh_qti_listening_system():
             print_error(f"❌ Published exams retrieval failed - Status: {response.status_code}")
             results['qti_exam_availability'] = False
     except Exception as e:
-        print_error(f"❌ QTI exam availability test error: {str(e)}")
+        print_error(f"❌ Fresh QTI exam availability test error: {str(e)}")
         results['qti_exam_availability'] = False
     
     # Test 2: Question Structure Validation
