@@ -421,13 +421,13 @@ QTI_LISTENING_TEST_DATA = {
     ]
 }
 
-def create_qti_listening_test():
+async def create_qti_listening_test():
     """Create the comprehensive QTI listening test"""
     try:
         
         # Create exam
         exam_data = QTI_LISTENING_TEST_DATA["exam"]
-        result = db.exams.replace_one(
+        result = await db.exams.replace_one(
             {"id": exam_data["id"]}, 
             exam_data, 
             upsert=True
