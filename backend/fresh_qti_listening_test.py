@@ -666,6 +666,7 @@ async def create_fresh_qti_listening_test():
             # Insert section
             section_copy = section_data.copy()
             questions = section_copy.pop("questions", [])
+            section_copy["id"] = f"{exam_data['id']}-section-{section_data['index']}"
             await db.sections.insert_one(section_copy)
             print(f"✅ Created section {section_data['index']}: {section_data['title']}")
             
@@ -673,7 +674,7 @@ async def create_fresh_qti_listening_test():
             for question_data in questions:
                 question_copy = question_data.copy()
                 question_copy["exam_id"] = exam_data["id"]
-                question_copy["section_index"] = section_data["index"]
+                question_copy["section_id"] = section_copy["id"]
                 question_copy["id"] = f"{exam_data['id']}-q{question_copy['index']}"
                 
                 await db.questions.insert_one(question_copy)
