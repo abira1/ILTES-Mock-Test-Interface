@@ -1458,6 +1458,13 @@ async def startup_db():
     await init_reading_test()
     await init_writing_test()
     
+    # Initialize QTI Listening Test (comprehensive with all 10 question types)
+    try:
+        create_qti_listening_test()
+        logger.info("QTI Listening Test initialized")
+    except Exception as e:
+        logger.error(f"Error initializing QTI Listening Test: {str(e)}")
+    
     # Initialize Question Type Preview Test (for admin testing)
     try:
         create_question_preview_test()
