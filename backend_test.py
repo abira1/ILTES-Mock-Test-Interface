@@ -1268,20 +1268,21 @@ def test_ai_import_and_track_management():
     return results
 
 
-def test_qti_listening_system():
-    """Test QTI-Compliant IELTS Listening System - Comprehensive Backend Verification"""
-    print_test_header("QTI-Compliant IELTS Listening System - Comprehensive Backend Verification")
+def test_fresh_qti_listening_system():
+    """Test Fresh QTI-Compliant IELTS Listening System - Comprehensive Backend Verification"""
+    print_test_header("Fresh QTI-Compliant IELTS Listening System - Comprehensive Backend Verification")
     
-    print_info("Testing QTI-compliant IELTS Listening system as requested:")
-    print_info("1. QTI Listening Test Availability")
+    print_info("Testing fresh QTI-compliant IELTS Listening system as requested:")
+    print_info("1. Fresh QTI Listening Test Availability (exam ID: fresh-qti-listening-test)")
     print_info("2. Question Structure Validation (40 questions, 4 sections)")
-    print_info("3. Auto-Grading System for all 10 QTI question types")
-    print_info("4. Exam Data Integrity")
-    print_info("5. Submission Workflow with QTI format")
+    print_info("3. All 10 QTI Question Types Implementation")
+    print_info("4. Auto-Grading System for all QTI question types")
+    print_info("5. Exam Data Integrity and Answer Keys")
+    print_info("6. Submission Workflow with QTI format")
     print_info("")
     
     results = {}
-    qti_exam_id = "qti-listening-practice-test-1"
+    qti_exam_id = "fresh-qti-listening-test"
     
     # Test 1: QTI Listening Test Availability
     print_info("\n--- Test 1: QTI Listening Test Availability ---")
