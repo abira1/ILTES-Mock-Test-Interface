@@ -452,7 +452,7 @@ async def create_qti_listening_test():
                 question_data["section_index"] = section_data["index"]
                 question_data["id"] = f"{exam_data['id']}-q{question_data['index']}"
                 
-                db.questions.replace_one(
+                await db.questions.replace_one(
                     {"exam_id": exam_data["id"], "index": question_data["index"]},
                     question_data,
                     upsert=True
