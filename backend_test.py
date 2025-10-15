@@ -10,7 +10,7 @@ import sys
 from datetime import datetime
 
 # Backend URL from frontend environment
-BACKEND_URL = "https://exam-question-hub.preview.emergentagent.com/api"
+BACKEND_URL = "https://react-bug-hunter-1.preview.emergentagent.com/api"
 
 class Colors:
     GREEN = '\033[92m'
