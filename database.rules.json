@@ -1,0 +1,20 @@
+{
+  "rules": {
+    "students": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    },
+    "submissions": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "$submissionId": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    }
+  }
+}
