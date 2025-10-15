@@ -1458,10 +1458,10 @@ async def startup_db():
     await init_reading_test()
     await init_writing_test()
     
-    # Initialize QTI Listening Test (comprehensive with all 10 question types)
+    # Initialize Fresh QTI Listening Test (comprehensive with all 10 question types)
     try:
-        await create_qti_listening_test()
-        logger.info("QTI Listening Test initialized")
+        await create_fresh_qti_listening_test()
+        logger.info("Fresh QTI Listening Test initialized")
     except Exception as e:
         logger.error(f"Error initializing QTI Listening Test: {str(e)}")
     
