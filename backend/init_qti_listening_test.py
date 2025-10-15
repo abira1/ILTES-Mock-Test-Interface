@@ -424,7 +424,6 @@ QTI_LISTENING_TEST_DATA = {
 def create_qti_listening_test():
     """Create the comprehensive QTI listening test"""
     try:
-        db = get_database()
         
         # Create exam
         exam_data = QTI_LISTENING_TEST_DATA["exam"]
