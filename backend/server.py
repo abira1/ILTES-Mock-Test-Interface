@@ -1460,7 +1460,7 @@ async def startup_db():
     
     # Initialize QTI Listening Test (comprehensive with all 10 question types)
     try:
-        create_qti_listening_test()
+        await create_qti_listening_test()
         logger.info("QTI Listening Test initialized")
     except Exception as e:
         logger.error(f"Error initializing QTI Listening Test: {str(e)}")
