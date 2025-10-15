@@ -1268,6 +1268,382 @@ def test_ai_import_and_track_management():
     return results
 
 
+def test_qti_listening_system():
+    """Test QTI-Compliant IELTS Listening System - Comprehensive Backend Verification"""
+    print_test_header("QTI-Compliant IELTS Listening System - Comprehensive Backend Verification")
+    
+    print_info("Testing QTI-compliant IELTS Listening system as requested:")
+    print_info("1. QTI Listening Test Availability")
+    print_info("2. Question Structure Validation (40 questions, 4 sections)")
+    print_info("3. Auto-Grading System for all 10 QTI question types")
+    print_info("4. Exam Data Integrity")
+    print_info("5. Submission Workflow with QTI format")
+    print_info("")
+    
+    results = {}
+    qti_exam_id = "qti-listening-practice-test-1"
+    
+    # Test 1: QTI Listening Test Availability
+    print_info("\n--- Test 1: QTI Listening Test Availability ---")
+    print_info("Testing: GET /api/exams/published should include 'qti-listening-practice-test-1'")
+    
+    try:
+        response = requests.get(f"{BACKEND_URL}/exams/published", timeout=10)
+        if response.status_code == 200:
+            published_exams = response.json()
+            print_success(f"✅ Published exams retrieved - Status: {response.status_code}")
+            print_info(f"Found {len(published_exams)} published exams")
+            
+            # Check if QTI exam exists
+            qti_exam_found = False
+            qti_exam_data = None
+            for exam in published_exams:
+                if exam.get('id') == qti_exam_id:
+                    qti_exam_found = True
+                    qti_exam_data = exam
+                    break
+            
+            if qti_exam_found:
+                print_success(f"✅ QTI Listening Test found: '{qti_exam_data.get('title')}'")
+                print_info(f"Exam ID: {qti_exam_data.get('id')}")
+                print_info(f"Exam type: {qti_exam_data.get('exam_type')}")
+                print_info(f"Duration: {qti_exam_data.get('duration_seconds')} seconds")
+                print_info(f"Question count: {qti_exam_data.get('question_count')}")
+                results['qti_exam_availability'] = True
+            else:
+                print_error("❌ QTI Listening Test 'qti-listening-practice-test-1' not found in published exams")
+                print_info("Available exams:")
+                for exam in published_exams[:5]:
+                    print_info(f"  - {exam.get('id')}: {exam.get('title')}")
+                results['qti_exam_availability'] = False
+        else:
+            print_error(f"❌ Published exams retrieval failed - Status: {response.status_code}")
+            results['qti_exam_availability'] = False
+    except Exception as e:
+        print_error(f"❌ QTI exam availability test error: {str(e)}")
+        results['qti_exam_availability'] = False
+    
+    # Test 2: Question Structure Validation
+    print_info("\n--- Test 2: Question Structure Validation ---")
+    print_info(f"Testing: GET /api/exams/{qti_exam_id}/full should return 40 questions with proper QTI types")
+    
+    try:
+        response = requests.get(f"{BACKEND_URL}/exams/{qti_exam_id}/full", timeout=10)
+        if response.status_code == 200:
+            full_exam = response.json()
+            print_success(f"✅ Full exam data retrieved - Status: {response.status_code}")
+            
+            exam_data = full_exam.get('exam', {})
+            sections_data = full_exam.get('sections', [])
+            
+            print_info(f"Exam title: {exam_data.get('title')}")
+            print_info(f"Sections count: {len(sections_data)}")
+            
+            # Verify 4 sections
+            if len(sections_data) == 4:
+                print_success("✅ Correct number of sections (4)")
+                results['qti_sections_count'] = True
+            else:
+                print_error(f"❌ Expected 4 sections, found {len(sections_data)}")
+                results['qti_sections_count'] = False
+            
+            # Collect all questions and verify count
+            all_questions = []
+            for section in sections_data:
+                questions = section.get('questions', [])
+                all_questions.extend(questions)
+                print_info(f"  Section {section.get('index')}: {len(questions)} questions")
+            
+            # Verify 40 questions total
+            if len(all_questions) == 40:
+                print_success("✅ Correct number of questions (40)")
+                results['qti_questions_count'] = True
+            else:
+                print_error(f"❌ Expected 40 questions, found {len(all_questions)}")
+                results['qti_questions_count'] = False
+            
+            # Verify QTI question types
+            expected_qti_types = [
+                'form_completion', 'fill_in_gaps', 'fill_in_gaps_short_answers',
+                'map_labeling', 'multiple_choice_single', 'multiple_choice_multiple',
+                'matching', 'table_completion', 'sentence_completion', 'flowchart_completion'
+            ]
+            
+            found_types = set()
+            for question in all_questions:
+                q_type = question.get('type')
+                if q_type:
+                    found_types.add(q_type)
+            
+            print_info(f"Found question types: {sorted(found_types)}")
+            
+            # Check if all expected QTI types are present
+            missing_types = set(expected_qti_types) - found_types
+            extra_types = found_types - set(expected_qti_types)
+            
+            if not missing_types:
+                print_success("✅ All 10 QTI question types found")
+                results['qti_question_types'] = True
+            else:
+                print_error(f"❌ Missing QTI question types: {missing_types}")
+                results['qti_question_types'] = False
+            
+            if extra_types:
+                print_warning(f"⚠️  Extra question types found: {extra_types}")
+            
+            # Verify question payloads contain proper QTI structure
+            payload_check_passed = True
+            sample_checks = []
+            
+            for question in all_questions[:5]:  # Check first 5 questions
+                payload = question.get('payload', {})
+                q_type = question.get('type')
+                q_index = question.get('index')
+                
+                # Check for answer_key in payload
+                if 'answer_key' not in payload:
+                    payload_check_passed = False
+                    sample_checks.append(f"Q{q_index} ({q_type}): Missing answer_key")
+                else:
+                    sample_checks.append(f"Q{q_index} ({q_type}): ✅ Has answer_key")
+            
+            print_info("Sample payload structure checks:")
+            for check in sample_checks:
+                print_info(f"  {check}")
+            
+            if payload_check_passed:
+                print_success("✅ Question payloads contain proper QTI structure")
+                results['qti_payload_structure'] = True
+            else:
+                print_error("❌ Some question payloads missing required QTI structure")
+                results['qti_payload_structure'] = False
+            
+        else:
+            print_error(f"❌ Full exam data retrieval failed - Status: {response.status_code}")
+            results['qti_sections_count'] = False
+            results['qti_questions_count'] = False
+            results['qti_question_types'] = False
+            results['qti_payload_structure'] = False
+    except Exception as e:
+        print_error(f"❌ Question structure validation error: {str(e)}")
+        results['qti_sections_count'] = False
+        results['qti_questions_count'] = False
+        results['qti_question_types'] = False
+        results['qti_payload_structure'] = False
+    
+    # Test 3: Auto-Grading System for QTI Question Types
+    print_info("\n--- Test 3: Auto-Grading System for QTI Question Types ---")
+    print_info("Testing: POST /api/submissions with sample QTI answers and verify auto-grading")
+    
+    # Create sample QTI answers for all 40 questions
+    sample_qti_answers = {}
+    
+    # Form completion answers (Q1-3)
+    sample_qti_answers["1"] = "PETERSON"
+    sample_qti_answers["2"] = "07789 542316"
+    sample_qti_answers["3"] = "SINGLE ROOM"
+    
+    # Fill in gaps answers (Q4-7)
+    sample_qti_answers["4"] = "127"
+    sample_qti_answers["5"] = "TWO WEEKS"
+    sample_qti_answers["6"] = "SHARED"
+    sample_qti_answers["7"] = "FREE"
+    
+    # Fill in gaps short answers (Q8-10)
+    sample_qti_answers["8"] = "2:30 PM"
+    sample_qti_answers["9"] = "THURSDAY"
+    sample_qti_answers["10"] = "B15"
+    
+    # Map labeling answers (Q11-14)
+    sample_qti_answers["11"] = "C"
+    sample_qti_answers["12"] = "F"
+    sample_qti_answers["13"] = "A"
+    sample_qti_answers["14"] = "H"
+    
+    # Multiple choice single answers (Q15-17)
+    sample_qti_answers["15"] = "A"
+    sample_qti_answers["16"] = "C"
+    sample_qti_answers["17"] = "A"
+    
+    # Multiple choice multiple answers (Q18-20)
+    sample_qti_answers["18"] = ["A", "B", "C"]
+    
+    # Matching answers (Q21-25)
+    sample_qti_answers["21"] = "E"
+    sample_qti_answers["22"] = "C"
+    sample_qti_answers["23"] = "B"
+    sample_qti_answers["24"] = "A"
+    sample_qti_answers["25"] = "D"
+    
+    # Table completion answers (Q26-30)
+    sample_qti_answers["26"] = "2 WEEKS"
+    sample_qti_answers["27"] = "INTERVIEWS"
+    sample_qti_answers["28"] = "ANALYSIS"
+    sample_qti_answers["29"] = "3 WEEKS"
+    sample_qti_answers["30"] = "DRAFT REPORT"
+    
+    # Sentence completion answers (Q31-35)
+    sample_qti_answers["31"] = "GREENHOUSE GASES"
+    sample_qti_answers["32"] = "FOSSIL FUELS"
+    sample_qti_answers["33"] = "ONE"
+    sample_qti_answers["34"] = "ICE CAPS"
+    sample_qti_answers["35"] = "HYDROELECTRIC"
+    
+    # Flowchart completion answers (Q36-40)
+    sample_qti_answers["36"] = "PHOTOSYNTHESIS"
+    sample_qti_answers["37"] = "DECOMPOSITION"
+    sample_qti_answers["38"] = "SOIL CARBON"
+    sample_qti_answers["39"] = "RESPIRATION"
+    sample_qti_answers["40"] = "ATMOSPHERE"
+    
+    submission_data = {
+        "exam_id": qti_exam_id,
+        "user_id_or_session": f"qti_test_user_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
+        "answers": sample_qti_answers,
+        "started_at": datetime.now().isoformat(),
+        "finished_at": datetime.now().isoformat(),
+        "progress_percent": 100
+    }
+    
+    try:
+        response = requests.post(
+            f"{BACKEND_URL}/submissions",
+            json=submission_data,
+            headers={"Content-Type": "application/json"},
+            timeout=15
+        )
+        
+        if response.status_code == 200:
+            submission_result = response.json()
+            print_success(f"✅ QTI submission created - Status: {response.status_code}")
+            print_info(f"Submission ID: {submission_result.get('id')}")
+            print_info(f"Total questions: {submission_result.get('total_questions')}")
+            print_info(f"Correct answers: {submission_result.get('correct_answers')}")
+            print_info(f"Score: {submission_result.get('score')}")
+            
+            # Verify auto-grading worked
+            total_questions = submission_result.get('total_questions', 0)
+            correct_answers = submission_result.get('correct_answers', 0)
+            score = submission_result.get('score', 0)
+            
+            if total_questions == 40:
+                print_success("✅ Total questions count correct (40)")
+                results['qti_total_questions'] = True
+            else:
+                print_error(f"❌ Expected 40 total questions, got {total_questions}")
+                results['qti_total_questions'] = False
+            
+            # Check if auto-grading produced reasonable results
+            if score == correct_answers and score > 0:
+                print_success(f"✅ Auto-grading system working - Score: {score}/{total_questions}")
+                print_info(f"Percentage: {(score/total_questions)*100:.1f}%")
+                results['qti_auto_grading'] = True
+            else:
+                print_error(f"❌ Auto-grading issue - Score: {score}, Correct: {correct_answers}")
+                results['qti_auto_grading'] = False
+            
+            # Test perfect score scenario (all correct answers)
+            if score == 40:
+                print_success("✅ Perfect score achieved - All QTI question types graded correctly")
+                results['qti_perfect_score'] = True
+            else:
+                print_warning(f"⚠️  Score: {score}/40 - Some answers may be incorrect or grading needs adjustment")
+                results['qti_perfect_score'] = False
+            
+        else:
+            print_error(f"❌ QTI submission failed - Status: {response.status_code}")
+            print_error(f"Response: {response.text}")
+            results['qti_total_questions'] = False
+            results['qti_auto_grading'] = False
+            results['qti_perfect_score'] = False
+    except Exception as e:
+        print_error(f"❌ QTI auto-grading test error: {str(e)}")
+        results['qti_total_questions'] = False
+        results['qti_auto_grading'] = False
+        results['qti_perfect_score'] = False
+    
+    # Test 4: Exam Data Integrity
+    print_info("\n--- Test 4: Exam Data Integrity ---")
+    print_info(f"Testing: GET /api/exams/{qti_exam_id} for complete exam structure")
+    
+    try:
+        response = requests.get(f"{BACKEND_URL}/exams/{qti_exam_id}", timeout=10)
+        if response.status_code == 200:
+            exam_data = response.json()
+            print_success(f"✅ Exam data retrieved - Status: {response.status_code}")
+            
+            # Verify exam fields
+            required_fields = ['id', 'title', 'exam_type', 'duration_seconds', 'question_count', 'published']
+            missing_fields = [field for field in required_fields if field not in exam_data]
+            
+            if not missing_fields:
+                print_success("✅ All required exam fields present")
+                results['qti_exam_fields'] = True
+            else:
+                print_error(f"❌ Missing exam fields: {missing_fields}")
+                results['qti_exam_fields'] = False
+            
+            # Verify exam values
+            integrity_checks = []
+            if exam_data.get('exam_type') == 'listening':
+                integrity_checks.append("✅ Exam type: listening")
+            else:
+                integrity_checks.append(f"❌ Exam type: {exam_data.get('exam_type')} (expected: listening)")
+            
+            if exam_data.get('question_count') == 40:
+                integrity_checks.append("✅ Question count: 40")
+            else:
+                integrity_checks.append(f"❌ Question count: {exam_data.get('question_count')} (expected: 40)")
+            
+            if exam_data.get('published') == True:
+                integrity_checks.append("✅ Published: true")
+            else:
+                integrity_checks.append(f"❌ Published: {exam_data.get('published')} (expected: true)")
+            
+            print_info("Exam integrity checks:")
+            for check in integrity_checks:
+                print_info(f"  {check}")
+            
+            # Check if all integrity checks passed
+            failed_checks = [check for check in integrity_checks if check.startswith("❌")]
+            if not failed_checks:
+                print_success("✅ All exam data integrity checks passed")
+                results['qti_exam_integrity'] = True
+            else:
+                print_error(f"❌ {len(failed_checks)} integrity checks failed")
+                results['qti_exam_integrity'] = False
+            
+        else:
+            print_error(f"❌ Exam data retrieval failed - Status: {response.status_code}")
+            results['qti_exam_fields'] = False
+            results['qti_exam_integrity'] = False
+    except Exception as e:
+        print_error(f"❌ Exam data integrity test error: {str(e)}")
+        results['qti_exam_fields'] = False
+        results['qti_exam_integrity'] = False
+    
+    # Summary
+    print_info("\n--- QTI-Compliant IELTS Listening System Test Summary ---")
+    passed_tests = sum(1 for result in results.values() if result)
+    total_tests = len(results)
+    
+    if passed_tests == total_tests:
+        print_success(f"🎉 ALL QTI LISTENING SYSTEM TESTS PASSED ({passed_tests}/{total_tests})")
+        print_success("✅ QTI Listening Test 'qti-listening-practice-test-1' is available and published")
+        print_success("✅ Question structure validated: 40 questions across 4 sections with proper QTI types")
+        print_success("✅ Auto-grading system handles all 10 QTI question types correctly")
+        print_success("✅ Exam data integrity verified with complete structure")
+        print_success("✅ Submission workflow functional from creation to grading")
+        print_success("✅ QTI-compliant IELTS Listening system is fully operational!")
+    else:
+        print_error(f"❌ SOME QTI TESTS FAILED ({passed_tests}/{total_tests})")
+        for test_name, result in results.items():
+            status = "PASS" if result else "FAIL"
+            color = Colors.GREEN if result else Colors.RED
+            print(f"  {color}{status} - {test_name.replace('_', ' ').title()}{Colors.END}")
+    
+    return results
+
 def run_all_tests():
     """Run all backend API tests in sequence"""
     print(f"{Colors.BOLD}{Colors.BLUE}")
