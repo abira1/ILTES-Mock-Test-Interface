@@ -472,5 +472,5 @@ def create_qti_listening_test():
         return False
 
 if __name__ == "__main__":
-    with app.app_context():
-        create_qti_listening_test()
+    import asyncio
+    asyncio.run(create_qti_listening_test())
