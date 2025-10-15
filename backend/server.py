@@ -587,9 +587,13 @@ async def create_submission(
                         "short_answer", "diagram_labeling", "short_answer_reading", 
                         "sentence_completion_wordlist"
                     ]:
-                        student_clean = str(student_answer).strip().lower()
-                        correct_clean = str(correct_answer).strip().lower()
-                        is_correct = student_clean == correct_clean
+                        # Skip if correct_answer is a list (not applicable for text comparison)
+                        if isinstance(correct_answer, list):
+                            is_correct = False
+                        else:
+                            student_clean = str(student_answer).strip().lower()
+                            correct_clean = str(correct_answer).strip().lower()
+                            is_correct = student_clean == correct_clean
                     
                     # Exact match for single choice (multiple choice, map labeling, true/false)
                     elif question_type in [
