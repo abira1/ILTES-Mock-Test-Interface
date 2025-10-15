@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Create IELTS Listening Practice Test 1 with 40 questions, audio playback (31:24 + 2 min review), all question types (short answer, multiple choice, map labeling, diagram labeling), timer, and answer submission to database"
+user_problem_statement: "Replace ALL current question types with QTI-based implementations from Question type folder. Implement all 10 listening types at once with fresh QTI-style sample questions. Use automated testing agent to verify functionality."
 
 backend:
   - task: "FastAPI Backend Server"
