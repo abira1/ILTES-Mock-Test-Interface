@@ -409,290 +409,120 @@ export function ListeningTest({ examId, audioRef }) {
   };
 
   const renderQuestion = (question) => {
+    // QTI Component props
+    const qtiProps = {
+      question: question,
+      answers: answers,
+      currentQuestionIndex: currentQuestionIndex,
+      onAnswerChange: handleAnswerChange,
+      onQuestionClick: setCurrentQuestionIndex,
+      onQuestionFocus: setCurrentQuestionIndex
+    };
+
+    // Get QTI component for question type
+    const QTIComponent = getQTIListeningComponent(question.type);
+    
+    if (QTIComponent) {
+      return (
+        <div key={question.id} data-question-index={question.index}>
+          <QTIComponent {...qtiProps} />
+        </div>
+      );
+    }
+
+    // Fallback for legacy question types (maintain backward compatibility)
     const questionNum = question.index;
 
     switch (question.type) {
       case 'short_answer':
         return (
-          <div 
-            key={question.id} 
-            className="mb-4" 
-            data-question-index={questionNum}
-            onClick={() => setCurrentQuestionIndex(questionNum)}
-          >
-            <div className="flex items-start gap-2">
-              <span className="font-semibold min-w-[3rem]">{questionNum}.</span>
-              <div className="flex-1">
-                {renderPromptWithInlineInput(question.payload.prompt, questionNum)}
-                {question.payload.max_words && (
-                  <p className="text-xs text-gray-500 mt-1">
-                    Maximum {question.payload.max_words} word(s)
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
+          <FillInGapsShortAnswers 
+            key={question.id}
+            {...qtiProps}
+          />
         );
 
       case 'multiple_choice':
         return (
-          <div 
-            key={question.id} 
-            className="mb-6" 
-            data-question-index={questionNum}
-            onClick={() => setCurrentQuestionIndex(questionNum)}
-          >
-            <div className="flex items-start gap-2">
-              <span className="font-semibold min-w-[3rem]">{questionNum}.</span>
-              <div className="flex-1">
-                <p className="text-gray-700 mb-3">{question.payload.prompt}</p>
-                <div className="space-y-2">
-                  {question.payload.options.map((option, idx) => {
-                    const optionLabel = String.fromCharCode(65 + idx); // A, B, C, D
-                    return (
-                      <label key={idx} className="flex items-start gap-2 cursor-pointer hover:bg-gray-50 p-2 rounded">
-                        <input
-                          type="radio"
-                          name={`question_${questionNum}`}
-                          value={optionLabel}
-                          checked={answers[questionNum] === optionLabel}
-                          onChange={(e) => handleAnswerChange(questionNum, e.target.value)}
-                          onFocus={() => setCurrentQuestionIndex(questionNum)}
-                          className="mt-1"
-                        />
-                        <span className="text-gray-700">
-                          <span className="font-medium">{optionLabel}.</span> {option}
-                        </span>
-                      </label>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
+          <MultipleChoiceSingle 
+            key={question.id}
+            {...qtiProps}
+          />
         );
 
       case 'map_labeling':
         return (
-          <div 
-            key={question.id} 
-            className="mb-4" 
-            data-question-index={questionNum}
-            onClick={() => setCurrentQuestionIndex(questionNum)}
-          >
-            <div className="flex items-start gap-2">
-              <span className="font-semibold min-w-[3rem]">{questionNum}.</span>
-              <div className="flex-1">
-                <p className="text-gray-700 mb-2">{question.payload.prompt}</p>
-                <select
-                  value={answers[questionNum] || ''}
-                  onChange={(e) => handleAnswerChange(questionNum, e.target.value)}
-                  onFocus={() => setCurrentQuestionIndex(questionNum)}
-                  className="w-32 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">---</option>
-                  {question.payload.options.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {opt}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </div>
+          <MapLabeling 
+            key={question.id}
+            {...qtiProps}
+          />
         );
 
       case 'diagram_labeling':
         return (
-          <div 
-            key={question.id} 
-            className="mb-4" 
-            data-question-index={questionNum}
-            onClick={() => setCurrentQuestionIndex(questionNum)}
-          >
-            <div className="flex items-start gap-2">
-              <span className="font-semibold min-w-[3rem]">{questionNum}.</span>
-              <div className="flex-1">
-                {renderPromptWithInlineInput(question.payload.prompt, questionNum)}
-                {question.payload.max_words && (
-                  <p className="text-xs text-gray-500 mt-1">
-                    Maximum {question.payload.max_words} word(s)
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'matching_draggable':
-        // For matching_draggable, we need to handle multiple questions within one component
-        const questions = question.payload?.questions || [];
-        const startIndex = question.index;
-        
-        // Create a sub-answers object for this matching group
-        const matchingAnswers = {};
-        questions.forEach((q, idx) => {
-          const qIndex = startIndex + idx;
-          if (answers[qIndex]) {
-            matchingAnswers[qIndex] = answers[qIndex];
-          }
-        });
-        
-        return (
-          <div 
-            key={question.id} 
-            className="mb-6" 
-            data-question-index={startIndex}
-          >
-            <MatchingDraggable
-              question={question}
-              answers={matchingAnswers}
-              onAnswerChange={handleAnswerChange}
-              questionStartIndex={startIndex}
-            />
-          </div>
-        );
-
-      case 'multiple_choice_multiple':
-        return (
-          <div 
-            key={question.id} 
-            className="mb-6" 
-            data-question-index={questionNum}
-            onClick={() => setCurrentQuestionIndex(questionNum)}
-          >
-            <MultipleChoiceMultiple
-              question={question}
-              answer={answers[questionNum]}
-              onChange={handleAnswerChange}
-              questionNum={questionNum}
-            />
-          </div>
+          <FillInGapsShortAnswers 
+            key={question.id}
+            {...qtiProps}
+          />
         );
 
       case 'matching':
         return (
-          <div 
-            key={question.id} 
-            className="mb-4" 
-            data-question-index={questionNum}
-            onClick={() => setCurrentQuestionIndex(questionNum)}
-          >
-            <div className="flex items-start gap-2">
-              <span className="font-semibold min-w-[3rem]">{questionNum}.</span>
-              <div className="flex-1">
-                <p className="text-gray-700 mb-2">{question.payload.prompt}</p>
-                <p className="text-sm text-gray-600 mb-2 font-medium">{question.payload.question}</p>
-                <select
-                  value={answers[questionNum] || ''}
-                  onChange={(e) => handleAnswerChange(questionNum, e.target.value)}
-                  onFocus={() => setCurrentQuestionIndex(questionNum)}
-                  className="w-64 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">Select an option...</option>
-                  {question.payload.options.map((opt, idx) => {
-                    const optionLabel = String.fromCharCode(65 + idx);
-                    return (
-                      <option key={opt} value={optionLabel}>
-                        {optionLabel}. {opt}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-            </div>
-          </div>
+          <Matching 
+            key={question.id}
+            {...qtiProps}
+          />
+        );
+
+      case 'multiple_choice_multiple':
+        return (
+          <MultipleChoiceMultiple 
+            key={question.id}
+            {...qtiProps}
+          />
         );
 
       case 'form_completion':
         return (
-          <div 
-            key={question.id} 
-            className="mb-4" 
-            data-question-index={questionNum}
-            onClick={() => setCurrentQuestionIndex(questionNum)}
-          >
-            <FormCompletion
-              question={question}
-              answer={answers[questionNum]}
-              onChange={handleAnswerChange}
-              questionNum={questionNum}
-            />
-          </div>
-        );
-
-      case 'note_completion':
-        return (
-          <div 
-            key={question.id} 
-            className="mb-4" 
-            data-question-index={questionNum}
-            onClick={() => setCurrentQuestionIndex(questionNum)}
-          >
-            <NoteCompletion
-              question={question}
-              answer={answers[questionNum]}
-              onChange={handleAnswerChange}
-              questionNum={questionNum}
-            />
-          </div>
+          <FormCompletion 
+            key={question.id}
+            {...qtiProps}
+          />
         );
 
       case 'table_completion':
         return (
-          <div 
-            key={question.id} 
-            className="mb-4" 
-            data-question-index={questionNum}
-            onClick={() => setCurrentQuestionIndex(questionNum)}
-          >
-            <TableCompletion
-              question={question}
-              answer={answers[questionNum]}
-              onChange={handleAnswerChange}
-              questionNum={questionNum}
-            />
-          </div>
+          <TableCompletion 
+            key={question.id}
+            {...qtiProps}
+          />
         );
 
       case 'flowchart_completion':
         return (
-          <div 
-            key={question.id} 
-            className="mb-4" 
-            data-question-index={questionNum}
-            onClick={() => setCurrentQuestionIndex(questionNum)}
-          >
-            <FlowchartCompletion
-              question={question}
-              answer={answers[questionNum]}
-              onChange={handleAnswerChange}
-              questionNum={questionNum}
-            />
-          </div>
+          <FlowchartCompletion 
+            key={question.id}
+            {...qtiProps}
+          />
         );
 
-      case 'summary_completion':
+      case 'sentence_completion':
         return (
-          <div 
-            key={question.id} 
-            className="mb-4" 
-            data-question-index={questionNum}
-            onClick={() => setCurrentQuestionIndex(questionNum)}
-          >
-            <SummaryCompletion
-              question={question}
-              answer={answers[questionNum]}
-              onChange={handleAnswerChange}
-              questionNum={questionNum}
-            />
-          </div>
+          <SentenceCompletion 
+            key={question.id}
+            {...qtiProps}
+          />
         );
 
       default:
         return (
-          <div key={question.id} className="mb-4" data-question-index={questionNum}>
-            <p className="text-gray-500">Question type not supported: {question.type}</p>
+          <div key={question.id} className="mb-4 p-4 bg-gray-100 rounded">
+            <p className="text-red-600">Unsupported question type: {question.type}</p>
+            <p className="text-sm text-gray-600 mt-2">
+              Available QTI types: fill_in_gaps, fill_in_gaps_short_answers, multiple_choice_single, 
+              multiple_choice_multiple, form_completion, map_labeling, matching, sentence_completion, 
+              table_completion, flowchart_completion
+            </p>
           </div>
         );
     }
