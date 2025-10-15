@@ -567,7 +567,14 @@ async def create_submission(
                 
                 # Check if question has answer_key
                 if "answer_key" in question.get("payload", {}):
-                    correct_answer = question["payload"]["answer_key"]
+                    # Handle both answer_key and answer_keys for multiple choice multiple
+                    payload = question["payload"]
+                    correct_answer = payload.get("answer_key")
+                    
+                    # For multiple choice multiple, use answer_keys if available
+                    if question["type"] == "multiple_choice_multiple" and "answer_keys" in payload:
+                        correct_answer = payload["answer_keys"]
+                    
                     is_correct = False
                     
                     # QTI Question Type Grading Logic
