@@ -45,7 +45,8 @@ export class FillInGaps extends QTIListeningBase {
           {payload.table_data.headers && (
             <tr>
               {payload.table_data.headers.map((header, idx) => (
-                <th key={idx}>{header}</n              ))}
+                <th key={idx}>{header}</th>
+              ))}
             </tr>
           )}
         </thead>
