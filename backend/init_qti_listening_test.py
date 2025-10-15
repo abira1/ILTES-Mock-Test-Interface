@@ -439,7 +439,7 @@ async def create_qti_listening_test():
             section_data["exam_id"] = exam_data["id"]
             
             # Insert section
-            db.sections.replace_one(
+            await db.sections.replace_one(
                 {"exam_id": exam_data["id"], "index": section_data["index"]},
                 section_data,
                 upsert=True
