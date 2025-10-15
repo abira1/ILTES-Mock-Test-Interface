@@ -600,9 +600,13 @@ async def create_submission(
                         "multiple_choice_single", "map_labeling", "multiple_choice",
                         "matching_paragraphs", "true_false_not_given", "yes_no_not_given"
                     ]:
-                        student_upper = str(student_answer).strip().upper()
-                        correct_upper = str(correct_answer).strip().upper()
-                        is_correct = student_upper == correct_upper
+                        # Skip if correct_answer is a list (not applicable for single choice)
+                        if isinstance(correct_answer, list):
+                            is_correct = False
+                        else:
+                            student_upper = str(student_answer).strip().upper()
+                            correct_upper = str(correct_answer).strip().upper()
+                            is_correct = student_upper == correct_upper
                     
                     # Multiple choice with multiple answers - array comparison
                     elif question_type == "multiple_choice_multiple":
