@@ -1437,66 +1437,56 @@ def test_fresh_qti_listening_system():
     print_info("\n--- Test 3: Auto-Grading System for QTI Question Types ---")
     print_info("Testing: POST /api/submissions with sample QTI answers and verify auto-grading")
     
-    # Create sample QTI answers for all 40 questions
+    # Create sample QTI answers for all 40 questions based on fresh QTI test answer keys
     sample_qti_answers = {}
     
-    # Form completion answers (Q1-3)
-    sample_qti_answers["1"] = "PETERSON"
-    sample_qti_answers["2"] = "07789 542316"
-    sample_qti_answers["3"] = "SINGLE ROOM"
+    # Section 1: Form completion, Fill in gaps, Fill in gaps short answers, Multiple choice single (Q1-10)
+    sample_qti_answers["1"] = "PARKER"  # Form completion
+    sample_qti_answers["2"] = "01937 668542"  # Form completion
+    sample_qti_answers["3"] = "TWO"  # Form completion
+    sample_qti_answers["4"] = "CATHEDRAL"  # Fill in gaps
+    sample_qti_answers["5"] = "£30"  # Fill in gaps
+    sample_qti_answers["6"] = "AUGUST 1ST"  # Fill in gaps
+    sample_qti_answers["7"] = "BY POST"  # Fill in gaps short answers
+    sample_qti_answers["8"] = "TWO"  # Fill in gaps short answers
+    sample_qti_answers["9"] = "A"  # Multiple choice single
+    sample_qti_answers["10"] = "B"  # Multiple choice single
     
-    # Fill in gaps answers (Q4-7)
-    sample_qti_answers["4"] = "127"
-    sample_qti_answers["5"] = "TWO WEEKS"
-    sample_qti_answers["6"] = "SHARED"
-    sample_qti_answers["7"] = "FREE"
+    # Section 2: Map labeling, Multiple choice multiple, Table completion (Q11-20)
+    sample_qti_answers["11"] = "C"  # Map labeling
+    sample_qti_answers["12"] = "A"  # Map labeling
+    sample_qti_answers["13"] = "B"  # Map labeling
+    sample_qti_answers["14"] = "E"  # Map labeling
+    sample_qti_answers["15"] = ["A", "C", "G"]  # Multiple choice multiple (3 answers)
+    sample_qti_answers["16"] = "C"  # Part of multiple choice multiple
+    sample_qti_answers["17"] = "G"  # Part of multiple choice multiple
+    sample_qti_answers["18"] = "9 AM"  # Table completion
+    sample_qti_answers["19"] = "CLOSED"  # Table completion
+    sample_qti_answers["20"] = "24 HOURS"  # Table completion
     
-    # Fill in gaps short answers (Q8-10)
-    sample_qti_answers["8"] = "2:30 PM"
-    sample_qti_answers["9"] = "THURSDAY"
-    sample_qti_answers["10"] = "B15"
+    # Section 3: Matching, Sentence completion (Q21-30)
+    sample_qti_answers["21"] = "B"  # Matching
+    sample_qti_answers["22"] = "A"  # Matching
+    sample_qti_answers["23"] = "E"  # Matching
+    sample_qti_answers["24"] = "G"  # Matching
+    sample_qti_answers["25"] = "H"  # Matching
+    sample_qti_answers["26"] = "NEXT TUESDAY"  # Sentence completion
+    sample_qti_answers["27"] = "DRAFT PROPOSAL"  # Sentence completion
+    sample_qti_answers["28"] = "ONLINE DATABASES"  # Sentence completion
+    sample_qti_answers["29"] = "PLANNING MEETING"  # Sentence completion
+    sample_qti_answers["30"] = "FIFTEEN"  # Sentence completion
     
-    # Map labeling answers (Q11-14)
-    sample_qti_answers["11"] = "C"
-    sample_qti_answers["12"] = "F"
-    sample_qti_answers["13"] = "A"
-    sample_qti_answers["14"] = "H"
-    
-    # Multiple choice single answers (Q15-17)
-    sample_qti_answers["15"] = "A"
-    sample_qti_answers["16"] = "C"
-    sample_qti_answers["17"] = "A"
-    
-    # Multiple choice multiple answers (Q18-20)
-    sample_qti_answers["18"] = ["A", "B", "C"]
-    
-    # Matching answers (Q21-25)
-    sample_qti_answers["21"] = "E"
-    sample_qti_answers["22"] = "C"
-    sample_qti_answers["23"] = "B"
-    sample_qti_answers["24"] = "A"
-    sample_qti_answers["25"] = "D"
-    
-    # Table completion answers (Q26-30)
-    sample_qti_answers["26"] = "2 WEEKS"
-    sample_qti_answers["27"] = "INTERVIEWS"
-    sample_qti_answers["28"] = "ANALYSIS"
-    sample_qti_answers["29"] = "3 WEEKS"
-    sample_qti_answers["30"] = "DRAFT REPORT"
-    
-    # Sentence completion answers (Q31-35)
-    sample_qti_answers["31"] = "GREENHOUSE GASES"
-    sample_qti_answers["32"] = "FOSSIL FUELS"
-    sample_qti_answers["33"] = "ONE"
-    sample_qti_answers["34"] = "ICE CAPS"
-    sample_qti_answers["35"] = "HYDROELECTRIC"
-    
-    # Flowchart completion answers (Q36-40)
-    sample_qti_answers["36"] = "PHOTOSYNTHESIS"
-    sample_qti_answers["37"] = "DECOMPOSITION"
-    sample_qti_answers["38"] = "SOIL CARBON"
-    sample_qti_answers["39"] = "RESPIRATION"
-    sample_qti_answers["40"] = "ATMOSPHERE"
+    # Section 4: Flowchart completion, Multiple choice single (Q31-40)
+    sample_qti_answers["31"] = "INTAKE CHAMBER"  # Flowchart completion
+    sample_qti_answers["32"] = "SEDIMENTATION"  # Flowchart completion
+    sample_qti_answers["33"] = "SAND"  # Flowchart completion
+    sample_qti_answers["34"] = "CHLORINE"  # Flowchart completion
+    sample_qti_answers["35"] = "STORAGE TANKS"  # Flowchart completion
+    sample_qti_answers["36"] = "B"  # Multiple choice single
+    sample_qti_answers["37"] = "B"  # Multiple choice single
+    sample_qti_answers["38"] = "C"  # Multiple choice single
+    sample_qti_answers["39"] = "B"  # Multiple choice single
+    sample_qti_answers["40"] = "B"  # Multiple choice single
     
     submission_data = {
         "exam_id": qti_exam_id,
