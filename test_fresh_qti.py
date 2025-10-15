@@ -267,7 +267,7 @@ def test_fresh_qti_listening_comprehensive():
     sample_qti_answers["12"] = "A"  # Map labeling
     sample_qti_answers["13"] = "B"  # Map labeling
     sample_qti_answers["14"] = "E"  # Map labeling
-    sample_qti_answers["15"] = ["A", "C", "G"]  # Multiple choice multiple (3 answers)
+    sample_qti_answers["15"] = "A"  # Multiple choice multiple - first answer
     sample_qti_answers["16"] = "C"  # Part of multiple choice multiple
     sample_qti_answers["17"] = "G"  # Part of multiple choice multiple
     sample_qti_answers["18"] = "9 AM"  # Table completion
