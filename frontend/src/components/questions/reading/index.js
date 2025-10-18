@@ -1,16 +1,32 @@
-// Reading Question Components
-export { default as MultipleChoiceSingle } from './MultipleChoiceSingle';
-export { default as MultipleChoiceMultiple } from './MultipleChoiceMultiple';
-export { default as TrueFalseNotGiven } from './TrueFalseNotGiven';
-export { default as SentenceCompletion } from './SentenceCompletion';
-export { default as NoteCompletion } from './NoteCompletion';
-export { default as MatchingHeadings } from './MatchingHeadings';
-export { default as MatchingFeatures } from './MatchingFeatures';
-export { default as MatchingSentenceEndings } from './MatchingSentenceEndings';
-export { default as SummaryCompletionList } from './SummaryCompletionList';
-export { default as SummaryCompletionText } from './SummaryCompletionText';
-export { default as TableCompletion } from './TableCompletion';
-export { default as FlowchartCompletion } from './FlowchartCompletion';
+// Import components first
+import MultipleChoiceSingle from './MultipleChoiceSingle';
+import MultipleChoiceMultiple from './MultipleChoiceMultiple';
+import TrueFalseNotGiven from './TrueFalseNotGiven';
+import SentenceCompletion from './SentenceCompletion';
+import NoteCompletion from './NoteCompletion';
+import MatchingHeadings from './MatchingHeadings';
+import MatchingFeatures from './MatchingFeatures';
+import MatchingSentenceEndings from './MatchingSentenceEndings';
+import SummaryCompletionList from './SummaryCompletionList';
+import SummaryCompletionText from './SummaryCompletionText';
+import TableCompletion from './TableCompletion';
+import FlowchartCompletion from './FlowchartCompletion';
+
+// Export components
+export { 
+  MultipleChoiceSingle,
+  MultipleChoiceMultiple,
+  TrueFalseNotGiven,
+  SentenceCompletion,
+  NoteCompletion,
+  MatchingHeadings,
+  MatchingFeatures,
+  MatchingSentenceEndings,
+  SummaryCompletionList,
+  SummaryCompletionText,
+  TableCompletion,
+  FlowchartCompletion
+};
 
 // Component mapping for dynamic rendering
 export const READING_COMPONENTS = {
