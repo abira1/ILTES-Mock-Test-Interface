@@ -69,42 +69,82 @@ const MainContent = forwardRef((
     const questionType = question.type?.toLowerCase().replace(/-/g, '_');
 
     switch (questionType) {
-      // Listening types
+      // === LISTENING QUESTION TYPES ===
       case 'fill_in_gaps':
       case 'fill_in_the_gaps':
         return <FillInGaps {...props} />;
       
       case 'form_completion':
+        return <FormCompletion {...props} />;
+      
       case 'table_completion':
-        return <FillInGaps {...props} />;
+        return <TableCompletionListening {...props} />;
       
       case 'fill_in_gaps_short_answers':
-      case 'sentence_completion':
-      case 'note_completion':
         return <FillInGapsShortAnswers {...props} />;
       
+      case 'sentence_completion':
+        return <SentenceCompletionListening {...props} />;
+      
+      case 'flowchart_completion':
+      case 'flow_chart_completion':
+        return <FlowchartCompletionListening {...props} />;
+      
+      case 'map_labeling':
+      case 'map_labelling':
+      case 'labelling_on_a_map':
+        return <MapLabeling {...props} />;
+      
+      case 'matching':
+        return <MatchingListening {...props} />;
+      
       case 'multiple_choice_single':
-        return <MultipleChoiceSingle {...props} />;
+      case 'mcq_single':
+        return <MultipleChoiceSingleListening {...props} />;
       
       case 'multiple_choice_multiple':
-        return <MultipleChoiceMultiple {...props} />;
+      case 'mcq_multiple':
+        return <MultipleChoiceMultipleListening {...props} />;
       
-      // Reading types
+      // === READING QUESTION TYPES ===
       case 'true_false_not_given':
       case 'yes_no_not_given':
+      case 'identifying_information':
         return <TrueFalseNotGiven {...props} />;
       
-      // Writing types
+      case 'matching_headings':
+        return <MatchingHeadings {...props} />;
+      
+      case 'matching_features':
+        return <MatchingFeatures {...props} />;
+      
+      case 'matching_sentence_endings':
+        return <MatchingSentenceEndings {...props} />;
+      
+      case 'summary_completion_list':
+      case 'summary_completion':
+        return <SummaryCompletionList {...props} />;
+      
+      case 'summary_completion_text':
+        return <SummaryCompletionText {...props} />;
+      
+      case 'note_completion':
+        return <NoteCompletion {...props} />;
+      
+      // === WRITING QUESTION TYPES ===
       case 'writing_task_1':
+      case 'writing_task1':
         return <WritingTask1 {...props} />;
       
       case 'writing_task_2':
+      case 'writing_task2':
         return <WritingTask2 {...props} />;
       
       default:
         return (
           <div className="question-not-implemented">
             <p>Question type "{question.type}" is not yet implemented.</p>
+            <p>Detected type: "{questionType}"</p>
             <pre>{JSON.stringify(question, null, 2)}</pre>
           </div>
         );
