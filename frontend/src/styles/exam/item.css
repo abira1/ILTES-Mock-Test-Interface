@@ -1405,10 +1405,10 @@ ul.list-square,
 }
 
 [connect|class~=itemBody] [connect|class~=graphicGapMatchInteraction]>div>:first-child,
-[connect|class~=itemBody] [connect|class~=graphicGapMatchInteraction]>ul>:first-child margin-top: 0;
-/* Simulate margin collapsing */
-
+[connect|class~=itemBody] [connect|class~=graphicGapMatchInteraction]>ul>:first-child {
+    margin-top: 0;
 }
+/* Simulate margin collapsing */
 
 [connect|class~=itemBody] [connect|class~=graphicGapMatchInteraction]>div>:last-child,
 [connect|class~=itemBody] [connect|class~=graphicGapMatchInteraction]>ul>:last-child {
