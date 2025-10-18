@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import '@/App.css';
 import { Homepage } from './components/Homepage';
 import ExamInterface from './components/exam/ExamInterface';
@@ -12,6 +12,12 @@ import { WaitingForApproval } from './components/student/WaitingForApproval';
 import { StudentDashboard } from './components/student/StudentDashboard';
 import './styles/exam/exam-custom.css';
 
+// Wrapper to pass examId from URL params
+const ExamPage = () => {
+  const { examId } = useParams();
+  return <ExamInterface examId={examId} />;
+};
+
 function App() {
   return (
     <div className="App">
@@ -21,7 +27,7 @@ function App() {
           <AdminAuthProvider>
             <Routes>
               <Route path="/" element={<Homepage />} />
-              <Route path="/exam/:examId" element={<ExamInterface />} />
+              <Route path="/exam/:examId" element={<ExamPage />} />
               
               {/* Student routes - use AuthProvider (student context) */}
               <Route path="/student" element={<StudentHome />} />
