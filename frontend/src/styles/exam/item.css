@@ -536,7 +536,7 @@ ul.list-square,
 
 [connect|class~=itemBody] h3.ui-accordion-header label {
     float: right;
-    background: url(../images/item/checkboxOff.png) no-repeat top right;
+    /* background: url(../images/item/checkboxOff.png) */ no-repeat top right;
     display: inline-block;
     padding: 0.1em 30px 0.1em 0.3em;
     font-weight: normal;
@@ -559,7 +559,7 @@ ul.list-square,
 }
 
 [connect|class~=itemBody] h3.ui-accordion-header label.answering {
-    background-image: url(../images/item/checkboxOn.png);
+    /* background-image: url(../images/item/checkboxOn.png); */
     width: 22px;
     height: 21px;
     overflow: hidden;
@@ -1306,18 +1306,18 @@ ul.list-square,
 }
 
 [connect|class~=itemBody] [connect|class~=info] {
-    background-image: url(../images/item/info-icon-16.png);
+    /* background-image: url(../images/item/info-icon-16.png); */
 }
 
 /*
 [connect|class~=itemBody] [connect|class~=action],
 [connect|class~=itemBody] [connect|author-class~=action] {
-    background-image: url(../images/item/action-icon-16.png);
+    /* background-image: url(../images/item/action-icon-16.png); */
 }
 */
 
 [connect|class~=itemBody] [connect|class~=question] {
-    background-image: url(../images/item/question-icon-16.png);
+    /* background-image: url(../images/item/question-icon-16.png); */
 }
 
 [connect|class~=itemBody] [connect|class~=interaction] [connect|class~=prompt],
@@ -1550,13 +1550,13 @@ ul.list-square,
 }
 
 [connect|class~=itemBody] td.checked {
-    background-image: url("../images/item/chk_on.png");
+    /* background-image: url("../images/item/chk_on.png"); */
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 [connect|class~=itemBody] [connect|class~=deleteLine] {
-    background-image: url("../images/item/delete_line.png");
+    /* background-image: url("../images/item/delete_line.png"); */
     background-position: center center;
     background-repeat: no-repeat;
     height: 10px;
@@ -1568,13 +1568,13 @@ ul.list-square,
     border-left: none;
     border-right: none;
     height: 25px;
-    background-image: url("../images/item/up-arrow.png");
+    /* background-image: url("../images/item/up-arrow.png"); */
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 [connect|class~=itemBody] [connect|author-class~=textChain] [connect|author-class~=downArrow] {
-    background-image: url("../images/item/down-arrow.png");
+    /* background-image: url("../images/item/down-arrow.png"); */
 }
 
 [connect|class~=itemBody] [connect|author-class~=center] {
@@ -1806,7 +1806,7 @@ ul.list-square,
 }
 
 [connect|class~=itemBody] .inlineChoiceGroup dl.inlineChoice li a.clear {
-    background: url("../images/item/delete.png") no-repeat left bottom;
+    /* background: url("../images/item/delete.png") */ no-repeat left bottom;
     width: 16px;
     height: 16px;
     text-decoration: none;
@@ -1815,7 +1815,7 @@ ul.list-square,
 [connect|class~=itemBody] .inlineChoiceGroup dl.inlineChoice li a.clear:hover,
 [connect|class~=itemBody] .inlineChoiceGroup dl.inlineChoice li a.clear:active {
     text-decoration: none;
-    background-image: url("../images/item/deleteActive.png");
+    /* background-image: url("../images/item/deleteActive.png"); */
 }
 
 [connect|class~=itemBody] .inlineChoiceGroup dl.inlineChoice li a.clear span {
@@ -1908,7 +1908,7 @@ ul.list-square,
 }
 
 [connect|class~=itemBody] [connect|author-class~="presentation-horizontalPopup"] dl.inlineChoice li a.clear {
-    background: url("../images/item/delete.png") no-repeat left bottom;
+    /* background: url("../images/item/delete.png") */ no-repeat left bottom;
     width: 16px;
     height: 16px;
     text-decoration: none;
@@ -1917,7 +1917,7 @@ ul.list-square,
 [connect|class~=itemBody] [connect|author-class~="presentation-horizontalPopup"] dl.inlineChoice li a.clear:hover,
 [connect|class~=itemBody] [connect|author-class~="presentation-horizontalPopup"] dl.inlineChoice li a.clear:active {
     text-decoration: none;
-    background-image: url("../images/item/deleteActive.png");
+    /* background-image: url("../images/item/deleteActive.png"); */
 }
 
 [connect|class~=itemBody] [connect|author-class~="presentation-horizontalPopup"] dl.inlineChoice li a.clear span {
@@ -3015,8 +3015,8 @@ ul.list-square,
 
 [connect|class~=itemBody] div[connect|author-class~=borderZigzag]:after {
     bottom: -5px;
-    -moz-border-image: url("../images/item/borderZigzag.png") 0 0 6 0 / 0 0 6px 0 repeat;
-    border-image: url("../images/item/borderZigzag.png") 0 0 6 0 / 0 0 6px 0 repeat;
+    -moz-/* border-image: url("../images/item/borderZigzag.png") */ 0 0 6 0 / 0 0 6px 0 repeat;
+    /* border-image: url("../images/item/borderZigzag.png") */ 0 0 6 0 / 0 0 6px 0 repeat;
 }
 
 [connect|class~=itemBody] div[connect|author-class~=borderWaveTop] {
@@ -3026,8 +3026,8 @@ ul.list-square,
 
 [connect|class~=itemBody] div[connect|author-class~=borderWaveTop]:after {
     top: -10px;
-    -moz-border-image: url("../images/item/borderWaveTop.png") 15 0 0 0 / 15px 0 0 0 stretch;
-    border-image: url("../images/item/borderWaveTop.png") 15 0 0 0 / 15px 0 0 0 stretch;
+    -moz-/* border-image: url("../images/item/borderWaveTop.png") */ 15 0 0 0 / 15px 0 0 0 stretch;
+    /* border-image: url("../images/item/borderWaveTop.png") */ 15 0 0 0 / 15px 0 0 0 stretch;
 }
 
 [connect|class~=itemBody] div[connect|author-class~=borderWaveBottom] {
@@ -3036,8 +3036,8 @@ ul.list-square,
 
 [connect|class~=itemBody] div[connect|author-class~=borderWaveBottom]:after {
     bottom: -10px;
-    -moz-border-image: url("../images/item/borderWaveBottom.png") 0 0 15 0 / 0 0 15px 0 stretch;
-    border-image: url("../images/item/borderWaveBottom.png") 0 0 15 0 / 0 0 15px 0 stretch;
+    -moz-/* border-image: url("../images/item/borderWaveBottom.png") */ 0 0 15 0 / 0 0 15px 0 stretch;
+    /* border-image: url("../images/item/borderWaveBottom.png") */ 0 0 15 0 / 0 0 15px 0 stretch;
 }
 
 [connect|class~=itemBody] div[connect|author-class~=doubleBottomMargin] {
@@ -3063,7 +3063,7 @@ ul.list-square,
     position: absolute;
     top: -0.4em;
     right: 0;
-    background: url("../images/item/iconNotes.png") no-repeat left top;
+    /* background: url("../images/item/iconNotes.png") */ no-repeat left top;
 }
 
 [connect|class~=itemBody] p span.input.expandable {

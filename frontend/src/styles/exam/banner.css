@@ -54,7 +54,7 @@
 }
 
 #candidate {
-    background-image: url("../images/banner/candidate-icon-16.png");
+    /* background-image: url("../images/banner/candidate-icon-16.png"); */
     color: #ddfed9;
     margin-right: 0.7em;
     float: left;
@@ -67,7 +67,7 @@
 }
 
 #timer {
-    background-image: url("../images/banner/timer-icon-16.png");
+    /* background-image: url("../images/banner/timer-icon-16.png"); */
     color: #fff0bd;
     cursor: pointer;
     width: 10em;
@@ -138,7 +138,7 @@ span[connect|function~=clickTimer] {
 
 #banner-controls a[connect|class~=helpLink] span,
 .help .toolbarButtonIcon span {
-    background: url("../images/banner/help-icon.png") no-repeat center center;
+    /* background: url("../images/banner/help-icon.png") */ no-repeat center center;
     display: inline-block;
     width: 16px;
     height: 16px;
@@ -146,12 +146,12 @@ span[connect|function~=clickTimer] {
 }
 
 .instructions {
-    background-image: url("../images/banner/instructions-icon.png");
+    /* background-image: url("../images/banner/instructions-icon.png"); */
     padding-right: 1.5em;
 }
 
 .close {
-    background-image: url("../images/banner/close-icon.png");
+    /* background-image: url("../images/banner/close-icon.png"); */
     width: 1.14286em;
     height: 1.14286em;
     margin: 10px 0 10px 0;
@@ -176,7 +176,7 @@ span[connect|function~=clickTimer] {
     display: none;
     float: right;
     margin-left: 0.5em;
-    background-image: url("../images/banner/volume-icon.png");
+    /* background-image: url("../images/banner/volume-icon.png"); */
     padding-left: 1.7em;
 }
 
