@@ -75,6 +75,7 @@ async def init_comprehensive_test():
     
     # SECTION 2: READING (Questions 11-20)
     section2 = {
+        "id": section2_id,
         "exam_id": COMPREHENSIVE_EXAM_ID,
         "index": 2,
         "title": "Section 2 - Reading",
@@ -89,8 +90,7 @@ However, adaptation strategies offer hope. Farmers are implementing water-effici
 The role of policy cannot be overstated. Governments must invest in agricultural research, provide support for farmers transitioning to climate-resilient practices, and promote international cooperation on food security issues. Only through coordinated global action can we ensure adequate food supplies for future generations.""",
         "created_at": now_str
     }
-    result2 = await db.sections.insert_one(section2)
-    section2_id = str(result2.inserted_id)
+    await db.sections.insert_one(section2)
     
     # SECTION 3: WRITING (Questions 21-30)
     section3 = {
