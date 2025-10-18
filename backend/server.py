@@ -1415,6 +1415,13 @@ async def startup_db():
     except Exception as e:
         logger.error(f"Error initializing QTI Listening Test: {str(e)}")
     
+    # Initialize Comprehensive IELTS Practice Test (40 questions, all types)
+    try:
+        await init_comprehensive_test()
+        logger.info("Comprehensive IELTS Practice Test initialized")
+    except Exception as e:
+        logger.error(f"Error initializing Comprehensive Test: {str(e)}")
+    
     # Initialize Question Type Preview Test (for admin testing)
     try:
         create_question_preview_test()
