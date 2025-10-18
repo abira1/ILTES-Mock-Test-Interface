@@ -1,0 +1,47 @@
+{
+  "id": "sample-writing-complete-2025",
+  "type": "writing",
+  "title": "IELTS Writing Practice Test - Complete",
+  "duration": 3600,
+  "published": true,
+  "sections": [
+    {
+      "index": 1,
+      "title": "Writing Task 1",
+      "questions": [
+        {
+          "index": 1,
+          "type": "writing_task_1",
+          "instructions": "You should spend about 20 minutes on this task.",
+          "payload": {
+            "prompt": "The chart below shows the percentage of households in different age groups using the internet in one country between 2015 and 2020.\n\nSummarize the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
+            "chartImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+            "minWords": 150,
+            "taskNumber": 1,
+            "taskType": "chart_description",
+            "chartDescription": "The bar chart displays internet usage percentages across four age groups (16-24, 25-44, 45-64, and 65+) over six years from 2015 to 2020. The data shows a general upward trend in internet adoption across all age demographics, with the youngest age group (16-24) consistently showing the highest usage rates, starting at around 95% in 2015 and reaching nearly 100% by 2020. The 25-44 age group follows closely behind, increasing from approximately 85% to 98% during the same period. The 45-64 age group demonstrates significant growth from about 70% to 92%, while the 65+ age group, despite starting with the lowest percentage at around 40%, shows the most dramatic relative increase, reaching approximately 75% by 2020."
+          }
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "title": "Writing Task 2",
+      "questions": [
+        {
+          "index": 2,
+          "type": "writing_task_2",
+          "instructions": "You should spend about 40 minutes on this task.\n\nWrite about the following topic:",
+          "payload": {
+            "prompt": "Some people believe that technological advancements have made our lives more complex and stressful, while others argue that technology has simplified daily life and improved overall well-being.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
+            "minWords": 250,
+            "taskNumber": 2,
+            "taskType": "opinion_essay",
+            "essayType": "discuss_both_views",
+            "keywords": ["technology", "complexity", "stress", "simplification", "well-being", "daily life"]
+          }
+        }
+      ]
+    }
+  ]
+}
