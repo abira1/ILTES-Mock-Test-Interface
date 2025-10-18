@@ -94,6 +94,7 @@ The role of policy cannot be overstated. Governments must invest in agricultural
     
     # SECTION 3: WRITING (Questions 21-30)
     section3 = {
+        "id": section3_id,
         "exam_id": COMPREHENSIVE_EXAM_ID,
         "index": 3,
         "title": "Section 3 - Writing",
@@ -102,8 +103,7 @@ The role of policy cannot be overstated. Governments must invest in agricultural
         "passage_text": None,
         "created_at": now_str
     }
-    result3 = await db.sections.insert_one(section3)
-    section3_id = str(result3.inserted_id)
+    await db.sections.insert_one(section3)
     
     # SECTION 4: MIXED - ALL TYPES (Questions 31-40)
     section4 = {
