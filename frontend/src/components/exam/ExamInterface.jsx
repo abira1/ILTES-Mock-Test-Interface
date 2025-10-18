@@ -120,15 +120,16 @@ const ExamInterface = ({ examId }) => {
 
   const saveProgress = async () => {
     try {
-      const { default: ExamFirebaseService } = await import('../../services/ExamFirebaseService');
-      await ExamFirebaseService.saveProgress(examId, {
+      // Save progress to localStorage
+      const progressData = {
         currentQuestion,
         answers,
         reviewMarked,
         notes,
         highlights,
         lastSaved: new Date().toISOString()
-      });
+      };
+      localStorage.setItem(`exam-progress-${examId}`, JSON.stringify(progressData));
     } catch (error) {
       console.error('Failed to save progress:', error);
     }
