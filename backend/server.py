@@ -559,89 +559,16 @@ async def create_submission(
             questions = await db.questions.find({"section_id": section["id"]}, {"_id": 0}).to_list(1000)
             all_questions.extend(questions)
         
-        # Auto-grade submission (skip for writing tasks - they need manual grading)
-        correct_count = 0
-        total_questions = len(all_questions)
+        # Use new grading engine for all question types
+        grading_results = grade_submission(
+            questions=all_questions,
+            student_answers=submission_data.answers,
+            exam_type=exam.get("exam_type")
+        )
         
-        # Check if this is a writing test (no auto-grading for writing)
-        is_writing_test = exam.get("exam_type") == "writing"
-        
-        if not is_writing_test:
-            for question in all_questions:
-                question_index = str(question["index"])
-                student_answer = submission_data.answers.get(question_index, "").strip().lower()
-                
-                # Check if question has answer_key
-                if "answer_key" in question.get("payload", {}):
-                    # Handle both answer_key and answer_keys for multiple choice multiple
-                    payload = question["payload"]
-                    correct_answer = payload.get("answer_key")
-                    
-                    # For multiple choice multiple, use answer_keys if available
-                    if question["type"] == "multiple_choice_multiple" and "answer_keys" in payload:
-                        correct_answer = payload["answer_keys"]
-                    
-                    is_correct = False
-                    
-                    # QTI Question Type Grading Logic
-                    question_type = question["type"]
-                    
-                    # Case-insensitive text comparison (fill in gaps, form completion, sentence completion)
-                    if question_type in [
-                        "fill_in_gaps", "fill_in_gaps_short_answers", "form_completion", 
-                        "sentence_completion", "table_completion", "flowchart_completion",
-                        "short_answer", "diagram_labeling", "short_answer_reading", 
-                        "sentence_completion_wordlist"
-                    ]:
-                        # Skip if correct_answer is a list (not applicable for text comparison)
-                        if isinstance(correct_answer, list):
-                            is_correct = False
-                        else:
-                            student_clean = str(student_answer).strip().lower()
-                            correct_clean = str(correct_answer).strip().lower()
-                            is_correct = student_clean == correct_clean
-                    
-                    # Exact match for single choice (multiple choice, map labeling, true/false)
-                    elif question_type in [
-                        "multiple_choice_single", "map_labeling", "multiple_choice",
-                        "matching_paragraphs", "true_false_not_given", "yes_no_not_given"
-                    ]:
-                        # Skip if correct_answer is a list (not applicable for single choice)
-                        if isinstance(correct_answer, list):
-                            is_correct = False
-                        else:
-                            student_upper = str(student_answer).strip().upper()
-                            correct_upper = str(correct_answer).strip().upper()
-                            is_correct = student_upper == correct_upper
-                    
-                    # Multiple choice with multiple answers - array comparison
-                    elif question_type == "multiple_choice_multiple":
-                        if isinstance(student_answer, list) and isinstance(correct_answer, list):
-                            # Sort both arrays and compare
-                            student_sorted = sorted([str(x).strip().upper() for x in student_answer])
-                            correct_sorted = sorted([str(x).strip().upper() for x in correct_answer])
-                            is_correct = student_sorted == correct_sorted
-                        else:
-                            is_correct = False
-                    
-                    # Matching questions - object/dict comparison
-                    elif question_type == "matching":
-                        # For matching, check individual question numbers
-                        # This is handled differently as matching creates multiple answer entries
-                        if isinstance(correct_answer, dict):
-                            # Check if this specific question index has correct match
-                            student_match = submission_data.answers.get(question_index, "").strip().upper()
-                            correct_match = str(correct_answer.get(str(question["index"]), "")).strip().upper()
-                            is_correct = student_match == correct_match
-                        else:
-                            # Single matching item
-                            is_correct = str(student_answer).strip().upper() == str(correct_answer).strip().upper()
-                    
-                    if is_correct:
-                        correct_count += 1
-        
-        # Calculate score (out of total questions) - writing tests get 0 until manually graded
-        score = correct_count if total_questions > 0 else 0
+        score = grading_results["score"]
+        correct_count = grading_results["correct_answers"]
+        total_questions = grading_results["total_questions"]
         
         submission_id = generate_id()
         now = get_timestamp()
