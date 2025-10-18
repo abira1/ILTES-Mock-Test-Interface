@@ -1403,22 +1403,22 @@ app.add_middleware(
 @app.on_event("startup")
 async def startup_db():
     """Initialize IELTS tests and database indexes on startup"""
-    # Initialize default tests
-    await init_ielts_test()
-    await init_reading_test()
-    await init_writing_test()
+    # Initialize default tests (commented out - files removed during rebuild)
+    # await init_ielts_test()
+    # await init_reading_test()
+    # await init_writing_test()
     
     # Initialize Fresh QTI Listening Test (comprehensive with all 10 question types)
-    try:
-        await create_fresh_qti_listening_test()
-        logger.info("Fresh QTI Listening Test initialized")
-    except Exception as e:
-        logger.error(f"Error initializing QTI Listening Test: {str(e)}")
+    # try:
+    #     await create_fresh_qti_listening_test()
+    #     logger.info("Fresh QTI Listening Test initialized")
+    # except Exception as e:
+    #     logger.error(f"Error initializing QTI Listening Test: {str(e)}")
     
     # Initialize Comprehensive IELTS Practice Test (40 questions, all types)
     try:
         await init_comprehensive_test()
-        logger.info("Comprehensive IELTS Practice Test initialized")
+        logger.info("Comprehensive Test initialized")
     except Exception as e:
         logger.error(f"Error initializing Comprehensive Test: {str(e)}")
     
