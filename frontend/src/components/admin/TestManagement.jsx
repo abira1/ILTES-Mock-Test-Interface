@@ -13,6 +13,8 @@ export function TestManagement() {
   const [exams, setExams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [showJsonImport, setShowJsonImport] = useState(false);
+  const [showAudioManager, setShowAudioManager] = useState(false);
   const [newlyCreatedExamId, setNewlyCreatedExamId] = useState(null);
   const navigate = useNavigate();
   const { showToast, ToastContainer } = useToast();
