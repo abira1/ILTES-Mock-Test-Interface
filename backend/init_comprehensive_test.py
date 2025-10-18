@@ -107,20 +107,20 @@ The role of policy cannot be overstated. Governments must invest in agricultural
     
     # SECTION 4: MIXED - ALL TYPES (Questions 31-40)
     section4 = {
+        "id": section4_id,
         "exam_id": COMPREHENSIVE_EXAM_ID,
         "index": 4,
-        "title": "Section 4 - Mixed Question Types",
+        "title": "Section 4 - Mixed Questions",
         "type": "mixed",
-        "instructions": "This section contains a variety of question types. Read each question carefully and provide your answer.",
-        "passage_text": """Artificial Intelligence in Healthcare
+        "instructions": "This section contains a variety of question types. Read carefully and answer questions 31-40.",
+        "passage_text": """The Future of Artificial Intelligence in Healthcare
 
 Artificial intelligence (AI) is revolutionizing healthcare delivery. Machine learning algorithms can now analyze medical images with accuracy rivaling human experts. AI-powered diagnostic tools help doctors identify diseases earlier, improving treatment outcomes and saving lives.
 
 Despite these advances, challenges remain. Data privacy concerns, algorithmic bias, and the need for human oversight are critical issues that must be addressed. The integration of AI into healthcare requires careful ethical consideration and robust regulatory frameworks.""",
         "created_at": now_str
     }
-    result4 = await db.sections.insert_one(section4)
-    section4_id = str(result4.inserted_id)
+    await db.sections.insert_one(section4)
     
     # ==================== SECTION 1: LISTENING QUESTIONS (1-10) ====================
     
