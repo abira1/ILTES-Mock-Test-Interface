@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Upload, CheckCircle, AlertCircle, Eye } from 'lucide-react';
-import ExamFirebaseService from '../../services/ExamFirebaseService';
+import BackendService from '../../services/BackendService';
 import { useToast } from '../common/Toast';
 
 export function ExamJsonImport({ onClose, onImportSuccess }) {
@@ -18,17 +18,19 @@ export function ExamJsonImport({ onClose, onImportSuccess }) {
       // Parse JSON
       const examData = JSON.parse(jsonText);
 
-      // Validate required fields
-      if (!examData.type) {
-        throw new Error('Missing required field: type (listening, reading, or writing)');
+      // Validate required fields (support both old and new format)
+      const testType = examData.test_type || examData.type;
+      if (!testType) {
+        throw new Error('Missing required field: test_type (listening, reading, or writing)');
       }
 
       if (!examData.title) {
         throw new Error('Missing required field: title');
       }
 
-      if (!examData.duration) {
-        throw new Error('Missing required field: duration (in seconds)');
+      const duration = examData.duration_seconds || examData.duration;
+      if (!duration) {
+        throw new Error('Missing required field: duration_seconds');
       }
 
       if (!examData.sections || !Array.isArray(examData.sections)) {
@@ -48,19 +50,17 @@ export function ExamJsonImport({ onClose, onImportSuccess }) {
           if (!question.type) {
             throw new Error(`Section ${index + 1}, Question ${qIndex + 1}: Missing type`);
           }
-          if (!question.payload) {
-            throw new Error(`Section ${index + 1}, Question ${qIndex + 1}: Missing payload`);
-          }
+          // Note: Auto-import doesn't require 'payload', it auto-detects from other fields
         });
         totalQuestions += section.questions.length;
       });
 
       // Create preview
       setPreviewData({
-        type: examData.type,
+        type: testType,
         title: examData.title,
-        duration: examData.duration,
-        audioUrl: examData.audioUrl || 'Not specified',
+        duration: duration,
+        audioUrl: examData.audio_url || examData.audioUrl || 'Not specified',
         sectionCount: examData.sections.length,
         totalQuestions,
         sections: examData.sections.map((section, idx) => ({
