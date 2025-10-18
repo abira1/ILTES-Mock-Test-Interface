@@ -465,4 +465,26 @@ export const BackendService = {
       throw new Error('Failed to delete track');
     }
   },
+
+  // Auto-import exam from JSON file
+  importExamFromJson: async (file) => {
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      
+      const response = await axios.post(`${BACKEND_URL}/api/admin/import-test-json`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        timeout: 30000, // 30 seconds for import
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error importing exam from JSON:', error);
+      if (error.response?.data?.detail) {
+        throw new Error(error.response.data.detail);
+      }
+      throw new Error('Failed to import exam from JSON');
+    }
+  },
 };
