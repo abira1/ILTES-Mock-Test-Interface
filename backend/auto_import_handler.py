@@ -10,7 +10,7 @@ import uuid
 from datetime import datetime, timezone
 from motor.motor_asyncio import AsyncIOMotorDatabase
 
-from question_type_schemas import (
+from new_question_type_schemas import (
     QUESTION_TYPE_SCHEMAS,
     detect_question_type,
     validate_question_structure,
