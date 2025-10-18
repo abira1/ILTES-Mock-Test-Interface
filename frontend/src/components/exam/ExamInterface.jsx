@@ -15,6 +15,7 @@ import '../../styles/exam/item.css';
 import '../../styles/exam/notepad.css';
 import '../../styles/exam/tools.css';
 import '../../styles/exam/custom.css';
+import '../../styles/exam/question-types.css';
 
 const ExamInterface = ({ examId }) => {
   const [exam, setExam] = useState(null);
