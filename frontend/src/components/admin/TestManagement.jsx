@@ -88,6 +88,7 @@ export function TestManagement() {
           title: `Copy of ${examToDuplicate.title}`,
           description: examToDuplicate.description,
           duration_seconds: examToDuplicate.duration_seconds,
+          exam_type: examToDuplicate.exam_type || 'listening',  // Include exam_type with fallback
           is_demo: false,
         });
         setExams([...exams, newExam]);
