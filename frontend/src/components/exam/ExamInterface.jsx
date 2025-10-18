@@ -62,7 +62,7 @@ const ExamInterface = ({ examId }) => {
   const loadExam = async () => {
     try {
       // Load exam from Firebase
-      const { default: FirebaseService } = await import('../../services/FirebaseService');
+      const { FirebaseService } = await import('../../services/FirebaseService');
       const examData = await FirebaseService.getExam(examId);
       setExam(examData);
       
