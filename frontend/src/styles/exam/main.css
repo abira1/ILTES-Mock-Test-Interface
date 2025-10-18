@@ -4,7 +4,7 @@
     width: 100%;
     margin: 0 auto;
     border-top: 1px solid transparent;
-    background-image: url("../images/main/background.png");
+    /* background-image: url("../images/main/background.png"); */
     background-repeat: repeat-x;
 }
 
