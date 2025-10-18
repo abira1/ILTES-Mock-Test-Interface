@@ -400,123 +400,30 @@ export function ListeningTest({ examId, audioRef }) {
   };
 
   const renderQuestion = (question) => {
-    // QTI Component props
-    const qtiProps = {
-      question: question,
-      answers: answers,
-      currentQuestionIndex: currentQuestionIndex,
-      onAnswerChange: handleAnswerChange,
-      onQuestionClick: setCurrentQuestionIndex,
-      onQuestionFocus: setCurrentQuestionIndex
-    };
-
-    // Get QTI component for question type
-    const QTIComponent = getQTIListeningComponent(question.type);
+    // Get component for question type
+    const QuestionComponent = getListeningComponent(question.type);
     
-    if (QTIComponent) {
+    if (QuestionComponent) {
       return (
-        <div key={question.id} data-question-index={question.index}>
-          <QTIComponent {...qtiProps} />
+        <div key={question.id || question.index} data-question-index={question.index}>
+          <QuestionComponent 
+            question={question}
+            answer={answers[question.index]}
+            onChange={(value) => handleAnswerChange(question.index, value)}
+          />
         </div>
       );
     }
 
-    // Fallback for legacy question types (maintain backward compatibility)
-    const questionNum = question.index;
-
-    switch (question.type) {
-      case 'short_answer':
-        return (
-          <FillInGapsShortAnswers 
-            key={question.id}
-            {...qtiProps}
-          />
-        );
-
-      case 'multiple_choice':
-        return (
-          <MultipleChoiceSingle 
-            key={question.id}
-            {...qtiProps}
-          />
-        );
-
-      case 'map_labeling':
-        return (
-          <MapLabeling 
-            key={question.id}
-            {...qtiProps}
-          />
-        );
-
-      case 'diagram_labeling':
-        return (
-          <FillInGapsShortAnswers 
-            key={question.id}
-            {...qtiProps}
-          />
-        );
-
-      case 'matching':
-        return (
-          <Matching 
-            key={question.id}
-            {...qtiProps}
-          />
-        );
-
-      case 'multiple_choice_multiple':
-        return (
-          <MultipleChoiceMultiple 
-            key={question.id}
-            {...qtiProps}
-          />
-        );
-
-      case 'form_completion':
-        return (
-          <FormCompletion 
-            key={question.id}
-            {...qtiProps}
-          />
-        );
-
-      case 'table_completion':
-        return (
-          <TableCompletion 
-            key={question.id}
-            {...qtiProps}
-          />
-        );
-
-      case 'flowchart_completion':
-        return (
-          <FlowchartCompletion 
-            key={question.id}
-            {...qtiProps}
-          />
-        );
-
-      case 'sentence_completion':
-        return (
-          <SentenceCompletion 
-            key={question.id}
-            {...qtiProps}
-          />
-        );
-
-      default:
-        return (
-          <div key={question.id} className="mb-4 p-4 bg-gray-100 rounded">
-            <p className="text-red-600">Unsupported question type: {question.type}</p>
-            <p className="text-sm text-gray-600 mt-2">
-              Available QTI types: fill_in_gaps, fill_in_gaps_short_answers, multiple_choice_single, 
-              multiple_choice_multiple, form_completion, map_labeling, matching, sentence_completion, 
-              table_completion, flowchart_completion
-            </p>
-          </div>
-        );
-    }
+    // Fallback for unsupported types
+    return (
+      <div key={question.id || question.index} className="mb-4 p-4 bg-red-50 border border-red-200 rounded">
+        <p className="text-red-700 font-medium">Unsupported question type: {question.type}</p>
+        <p className="text-sm text-gray-600 mt-2">
+          This question type is not yet implemented. Please contact support.
+        </p>
+      </div>
+    );
   };
 
   if (loading) {
