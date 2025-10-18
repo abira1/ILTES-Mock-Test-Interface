@@ -997,7 +997,7 @@ body .ui-tooltip {
     border: 1px solid #d3d3d3/*{borderColorDefault}*/
     ;
     background: #e6e6e6/*{bgColorDefault}*/
-    url(../images/ui/ui-bg_glass_75_e6e6e6_1x400.png)/*{bgImgUrlDefault}*/
+    /* url(../images/ui/ui-bg_glass_75_e6e6e6_1x400.png) *//*{bgImgUrlDefault}*/
     50%/*{bgDefaultXPos}*/
     50%/*{bgDefaultYPos}*/
     repeat-x/*{bgDefaultRepeat}*/
