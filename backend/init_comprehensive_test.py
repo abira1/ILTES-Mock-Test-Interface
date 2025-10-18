@@ -29,6 +29,7 @@ async def init_comprehensive_test():
         return COMPREHENSIVE_EXAM_ID
     
     # Create exam document
+    now = datetime.utcnow().isoformat()
     exam = {
         "id": COMPREHENSIVE_EXAM_ID,
         "title": "Comprehensive IELTS Practice Test - All Question Types",
@@ -41,7 +42,8 @@ async def init_comprehensive_test():
         "started_at": None,
         "stopped_at": None,
         "audio_url": "https://audio.jukehost.co.uk/F9irt6LcsYuP93ulaMo42JfXBEcABytV",  # Sample audio
-        "created_at": datetime.utcnow(),
+        "created_at": now,
+        "updated_at": now,
         "submission_count": 0
     }
     
