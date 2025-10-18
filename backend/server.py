@@ -1389,6 +1389,7 @@ app.include_router(api_router)
 # Include new routers for AI import and track management
 app.include_router(get_ai_import_router())
 app.include_router(get_track_router())
+app.include_router(auto_import_router)  # Auto-import for exam JSON uploads
 
 # Mount static files for serving audio files
 app.mount("/listening_tracks", StaticFiles(directory=str(LISTENING_TRACKS_DIR)), name="listening_tracks")
