@@ -25,7 +25,7 @@ import {
 // Import legacy components for backward compatibility
 import { MatchingParagraphs } from './reading/MatchingParagraphs';
 import { ShortAnswerReading } from './reading/ShortAnswerReading';
-import { MatchingDraggable } from './questions/MatchingDraggable';
+// import { MatchingDraggable } from './questions/MatchingDraggable'; // Component not found
 
 import HighlightManager from '../lib/HighlightManager';
 import '../styles/navigation.css';
