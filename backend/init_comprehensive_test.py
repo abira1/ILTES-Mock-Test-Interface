@@ -53,8 +53,16 @@ async def init_comprehensive_test():
     sections = []
     now_str = datetime.utcnow().isoformat()
     
+    # Generate section IDs
+    from uuid import uuid4
+    section1_id = str(uuid4())
+    section2_id = str(uuid4())
+    section3_id = str(uuid4())
+    section4_id = str(uuid4())
+    
     # SECTION 1: LISTENING (Questions 1-10)
     section1 = {
+        "id": section1_id,
         "exam_id": COMPREHENSIVE_EXAM_ID,
         "index": 1,
         "title": "Section 1 - Listening",
@@ -63,8 +71,7 @@ async def init_comprehensive_test():
         "passage_text": None,
         "created_at": now_str
     }
-    result1 = await db.sections.insert_one(section1)
-    section1_id = str(result1.inserted_id)
+    await db.sections.insert_one(section1)
     
     # SECTION 2: READING (Questions 11-20)
     section2 = {
