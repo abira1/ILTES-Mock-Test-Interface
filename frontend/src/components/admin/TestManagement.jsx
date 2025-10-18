@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Plus, Search, Filter, Edit, Trash2, Copy, Upload, MoreHorizontal, Volume2, PlayIcon, PauseIcon, Loader, AlertCircle, CheckCircle, Eye, EyeOff, BookOpen } from 'lucide-react';
+import { Plus, Search, Filter, Edit, Trash2, Copy, Upload, MoreHorizontal, Volume2, PlayIcon, PauseIcon, Loader, AlertCircle, CheckCircle, Eye, EyeOff, BookOpen, FileJson, Music } from 'lucide-react';
 import { BackendService } from '../../services/BackendService';
 import { useToast } from '../common/Toast';
 import { useAdminAuth } from '../../contexts/AdminAuthContext';
+import { ExamJsonImport } from './ExamJsonImport';
+import { AudioUrlManager } from './AudioUrlManager';
 
 export function TestManagement() {
   const [searchTerm, setSearchTerm] = useState('');
