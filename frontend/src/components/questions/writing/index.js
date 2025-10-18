@@ -1,6 +1,9 @@
-// Writing Question Components
-export { default as WritingTask1 } from './WritingTask1';
-export { default as WritingTask2 } from './WritingTask2';
+// Import components first
+import WritingTask1 from './WritingTask1';
+import WritingTask2 from './WritingTask2';
+
+// Export components
+export { WritingTask1, WritingTask2 };
 
 // Component mapping for dynamic rendering
 export const WRITING_COMPONENTS = {
