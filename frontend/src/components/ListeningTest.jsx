@@ -6,20 +6,11 @@ import { useAuth } from '../contexts/AuthContext';
 import { Clock, Volume2, ChevronLeft, ChevronRight, HelpCircle, EyeOff, User } from 'lucide-react';
 import HighlightManager from '../lib/HighlightManager';
 
-// QTI Question Type Components
+// New QTI Question Type Components
 import { 
-  FillInGaps,
-  FillInGapsShortAnswers,
-  MultipleChoiceSingle,
-  MultipleChoiceMultiple,
-  FormCompletion,
-  MapLabeling,
-  Matching,
-  SentenceCompletion,
-  TableCompletion,
-  FlowchartCompletion,
-  getQTIListeningComponent
-} from './questions/qti';
+  getListeningComponent,
+  LISTENING_COMPONENTS
+} from './questions/listening';
 
 import '../styles/navigation.css';
 import '../styles/qti-base.css';
