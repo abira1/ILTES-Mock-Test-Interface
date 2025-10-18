@@ -1,0 +1,262 @@
+{
+  "id": "sample-listening-complete-2025",
+  "type": "listening",
+  "title": "IELTS Listening Practice Test - Complete",
+  "duration": 2400,
+  "audioUrl": "https://audio.jukehost.co.uk/F9irt6LcsYuP93ulaMo42JfXBEcABytV",
+  "published": true,
+  "sections": [
+    {
+      "index": 1,
+      "title": "Section 1 - Social Context",
+      "questions": [
+        {
+          "index": 1,
+          "type": "form_completion",
+          "instructions": "Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.",
+          "payload": {
+            "prompt": "Example: Booking Form\n\nName: ____ Smith\nPhone: ____\nAddress: ____ High Street\nPostcode: ____",
+            "blanks": [
+              { "correctAnswer": "John", "maxLength": 20 },
+              { "correctAnswer": "555-1234", "maxLength": 15 },
+              { "correctAnswer": "123", "maxLength": 10 },
+              { "correctAnswer": "AB12 3CD", "maxLength": 10 }
+            ]
+          }
+        },
+        {
+          "index": 5,
+          "type": "fill_in_gaps",
+          "instructions": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
+          "payload": {
+            "prompt": "Apartment Features:\n- Type: ____ bedroom\n- Floor: ____ floor\n- Rent: £____ per month\n- Available from: ____",
+            "blanks": [
+              { "correctAnswer": "two", "maxLength": 20 },
+              { "correctAnswer": "third", "maxLength": 20 },
+              { "correctAnswer": "950", "maxLength": 10 },
+              { "correctAnswer": "January", "maxLength": 20 }
+            ]
+          }
+        },
+        {
+          "index": 9,
+          "type": "multiple_choice_single",
+          "instructions": "Choose the correct letter, A, B or C.",
+          "payload": {
+            "prompt": "What is the main reason for the delay?",
+            "options": [
+              { "label": "A", "text": "Weather conditions" },
+              { "label": "B", "text": "Technical problems" },
+              { "label": "C", "text": "Staff shortage" }
+            ],
+            "correctAnswer": "B"
+          }
+        },
+        {
+          "index": 10,
+          "type": "multiple_choice_single",
+          "instructions": "Choose the correct letter, A, B or C.",
+          "payload": {
+            "prompt": "The apartment is located near:",
+            "options": [
+              { "label": "A", "text": "A shopping center" },
+              { "label": "B", "text": "A train station" },
+              { "label": "C", "text": "A university" }
+            ],
+            "correctAnswer": "C"
+          }
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "title": "Section 2 - General Interest",
+      "questions": [
+        {
+          "index": 11,
+          "type": "map_labeling",
+          "instructions": "Label the map below. Write the correct letter, A-F, next to questions 11-14.",
+          "payload": {
+            "prompt": "Map of City Center",
+            "mapImage": "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600",
+            "locations": [
+              { "label": "A", "name": "Library" },
+              { "label": "B", "name": "Museum" },
+              { "label": "C", "name": "Park" },
+              { "label": "D", "name": "Theater" },
+              { "label": "E", "name": "Restaurant" },
+              { "label": "F", "name": "Hotel" }
+            ],
+            "questions": [
+              { "id": 11, "label": "Post Office", "correctAnswer": "B" },
+              { "id": 12, "label": "Bus Station", "correctAnswer": "D" },
+              { "id": 13, "label": "Tourist Information", "correctAnswer": "A" },
+              { "id": 14, "label": "Police Station", "correctAnswer": "C" }
+            ]
+          }
+        },
+        {
+          "index": 15,
+          "type": "multiple_choice_multiple",
+          "instructions": "Choose TWO letters, A-E.",
+          "payload": {
+            "prompt": "Which TWO facilities are available at the sports center?",
+            "options": [
+              { "label": "A", "text": "Swimming pool" },
+              { "label": "B", "text": "Tennis courts" },
+              { "label": "C", "text": "Gym equipment" },
+              { "label": "D", "text": "Sauna" },
+              { "label": "E", "text": "Café" }
+            ],
+            "correctAnswers": ["A", "C"],
+            "maxSelections": 2
+          }
+        },
+        {
+          "index": 17,
+          "type": "table_completion",
+          "instructions": "Complete the table below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+          "payload": {
+            "prompt": "Opening Hours",
+            "tableData": {
+              "headers": ["Day", "Opening Time", "Closing Time"],
+              "rows": [
+                { "cells": ["Monday-Friday", "____", "8:00 PM"] },
+                { "cells": ["Saturday", "10:00 AM", "____"] },
+                { "cells": ["Sunday", "____", "6:00 PM"] }
+              ]
+            },
+            "blanks": [
+              { "correctAnswer": "9:00 AM", "maxLength": 10 },
+              { "correctAnswer": "6:00 PM", "maxLength": 10 },
+              { "correctAnswer": "11:00 AM", "maxLength": 10 }
+            ]
+          }
+        },
+        {
+          "index": 20,
+          "type": "sentence_completion",
+          "instructions": "Complete the sentences below. Write NO MORE THAN TWO WORDS for each answer.",
+          "payload": {
+            "sentences": [
+              "The museum features a collection of ____ paintings.",
+              "Visitors can attend ____ every Tuesday.",
+              "The gift shop sells ____ and postcards."
+            ],
+            "correctAnswers": [
+              "contemporary",
+              "guided tours",
+              "books"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "title": "Section 3 - Educational Context",
+      "questions": [
+        {
+          "index": 21,
+          "type": "matching",
+          "instructions": "Match each statement (21-24) with the correct person (A-D).",
+          "payload": {
+            "prompt": "Discussion about Research Methods",
+            "options": [
+              { "label": "A", "text": "Professor Jones" },
+              { "label": "B", "text": "Dr. Smith" },
+              { "label": "C", "text": "Sarah" },
+              { "label": "D", "text": "Mark" }
+            ],
+            "statements": [
+              { "id": 21, "text": "Prefers quantitative analysis", "correctAnswer": "A" },
+              { "id": 22, "text": "Suggests using surveys", "correctAnswer": "C" },
+              { "id": 23, "text": "Recommends interviews", "correctAnswer": "D" },
+              { "id": 24, "text": "Mentions case studies", "correctAnswer": "B" }
+            ]
+          }
+        },
+        {
+          "index": 25,
+          "type": "multiple_choice_single",
+          "instructions": "Choose the correct letter, A, B, C or D.",
+          "payload": {
+            "prompt": "What is the main topic of the presentation?",
+            "options": [
+              { "label": "A", "text": "Climate change" },
+              { "label": "B", "text": "Research methodology" },
+              { "label": "C", "text": "Data analysis" },
+              { "label": "D", "text": "Literature review" }
+            ],
+            "correctAnswer": "B"
+          }
+        },
+        {
+          "index": 26,
+          "type": "fill_in_gaps_short_answers",
+          "instructions": "Answer the questions below. Write NO MORE THAN THREE WORDS for each answer.",
+          "payload": {
+            "questions": [
+              "When is the deadline for the project?",
+              "How many participants are needed?",
+              "Where will the interviews take place?",
+              "Who will supervise the study?",
+              "What type of data will be collected?"
+            ],
+            "correctAnswers": [
+              "Next Friday",
+              "Twenty students",
+              "The library",
+              "Dr. Brown",
+              "Qualitative data"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "title": "Section 4 - Academic Lecture",
+      "questions": [
+        {
+          "index": 31,
+          "type": "flowchart_completion",
+          "instructions": "Complete the flowchart below. Write NO MORE THAN TWO WORDS for each answer.",
+          "payload": {
+            "prompt": "Process of Scientific Research",
+            "flowchartType": "vertical",
+            "steps": [
+              { "text": "Identify ____", "blank": true, "correctAnswer": "research question" },
+              { "text": "Review existing literature", "blank": false },
+              { "text": "Design ____", "blank": true, "correctAnswer": "methodology" },
+              { "text": "Collect data", "blank": false },
+              { "text": "Analyze ____", "blank": true, "correctAnswer": "results" },
+              { "text": "Draw ____", "blank": true, "correctAnswer": "conclusions" }
+            ]
+          }
+        },
+        {
+          "index": 35,
+          "type": "sentence_completion",
+          "instructions": "Complete the sentences below. Write NO MORE THAN TWO WORDS for each answer.",
+          "payload": {
+            "sentences": [
+              "The research focuses on ____ development.",
+              "Scientists use ____ to measure results.",
+              "The study involves ____ participants.",
+              "Data is collected through ____ methods.",
+              "Results are published in ____ journals."
+            ],
+            "correctAnswers": [
+              "sustainable",
+              "statistical tools",
+              "international",
+              "qualitative",
+              "peer-reviewed"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
