@@ -63,7 +63,11 @@ const ExamInterface = ({ examId }) => {
     try {
       // Load exam from Backend API
       const { default: BackendService } = await import('../../services/BackendService');
-      const examData = await BackendService.getExamWithSectionsAndQuestions(examId);
+      const fullExamData = await BackendService.getExamWithSectionsAndQuestions(examId);
+      
+      // Backend returns {exam: {...}, sections: [...]}
+      const examData = fullExamData.exam || fullExamData;
+      const sections = fullExamData.sections || [];
       
       // Transform backend data structure to match component expectations
       const transformedExam = {
@@ -75,7 +79,7 @@ const ExamInterface = ({ examId }) => {
         candidateName: 'Student',
         candidateNumber: 'STU-12345',
         totalQuestions: examData.question_count || 40,
-        sections: examData.sections || []
+        sections: sections
       };
       
       setExam(transformedExam);
