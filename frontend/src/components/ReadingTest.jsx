@@ -411,12 +411,10 @@ export function ReadingTest({ examId }) {
         
         return (
           <div className="mb-6">
-            <MatchingDraggable
-              question={question}
-              answers={matchingAnswers}
-              onAnswerChange={(qIndex, value) => handleAnswerChange(qIndex, value)}
-              questionStartIndex={startIndex}
-            />
+            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded">
+              <p className="text-yellow-800">MatchingDraggable component not implemented yet</p>
+              <p className="text-sm text-gray-600">Question type: {question.type}</p>
+            </div>
           </div>
         );
       default:
