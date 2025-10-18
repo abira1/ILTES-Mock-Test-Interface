@@ -1806,7 +1806,7 @@ ul.list-square,
 }
 
 [connect|class~=itemBody] .inlineChoiceGroup dl.inlineChoice li a.clear {
-    /* background: url("../images/item/delete.png") */ no-repeat left bottom;
+    /* background: url("../images/item/delete.png") no-repeat left bottom; */
     width: 16px;
     height: 16px;
     text-decoration: none;
@@ -1908,7 +1908,7 @@ ul.list-square,
 }
 
 [connect|class~=itemBody] [connect|author-class~="presentation-horizontalPopup"] dl.inlineChoice li a.clear {
-    /* background: url("../images/item/delete.png") */ no-repeat left bottom;
+    /* background: url("../images/item/delete.png") no-repeat left bottom; */
     width: 16px;
     height: 16px;
     text-decoration: none;
@@ -3063,7 +3063,7 @@ ul.list-square,
     position: absolute;
     top: -0.4em;
     right: 0;
-    /* background: url("../images/item/iconNotes.png") */ no-repeat left top;
+    /* background: url("../images/item/iconNotes.png") no-repeat left top; */
 }
 
 [connect|class~=itemBody] p span.input.expandable {
