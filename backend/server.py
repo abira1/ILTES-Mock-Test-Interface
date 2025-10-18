@@ -27,7 +27,7 @@ from new_question_type_schemas import (
     get_all_question_types
 )
 from grading_engine import grade_submission
-from auto_import_handler import AutoImportHandler
+# from auto_import_handler import AutoImportHandler  # TODO: Fix missing functions before re-enabling
 
 
 ROOT_DIR = Path(__file__).parent
