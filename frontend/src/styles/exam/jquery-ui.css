@@ -1083,7 +1083,7 @@ body .ui-tooltip {
     border: 1px solid #fcefa1/*{borderColorHighlight}*/
     ;
     background: #fbf9ee/*{bgColorHighlight}*/
-    url(../images/ui/ui-bg_glass_55_fbf9ee_1x400.png)/*{bgImgUrlHighlight}*/
+    /* url(../images/ui/ui-bg_glass_55_fbf9ee_1x400.png) *//*{bgImgUrlHighlight}*/
     50%/*{bgHighlightXPos}*/
     50%/*{bgHighlightYPos}*/
     repeat-x/*{bgHighlightRepeat}*/
