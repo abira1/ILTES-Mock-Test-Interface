@@ -12,11 +12,11 @@ from typing import List, Optional, Dict, Any
 import uuid
 from datetime import datetime, timezone
 import shutil
-from init_ielts_test import init_ielts_test
-from init_reading_test import init_reading_test
-from init_writing_test import init_writing_test
+# from init_ielts_test import init_ielts_test
+# from init_reading_test import init_reading_test
+# from init_writing_test import init_writing_test
 from init_question_preview_test import create_question_preview_test
-from fresh_qti_listening_test import create_fresh_qti_listening_test
+# from fresh_qti_listening_test import create_fresh_qti_listening_test
 from init_comprehensive_test import init_comprehensive_test
 from auth_service import AuthService
 from ai_import_service import get_router as get_ai_import_router
