@@ -175,6 +175,11 @@ export function TestManagement() {
     }
   };
 
+  const handleJsonImportSuccess = (examId) => {
+    showToast(`Exam imported successfully! ID: ${examId}`, 'success');
+    fetchExams(); // Reload exams list
+  };
+
   return (
     <div>
       <ToastContainer />
