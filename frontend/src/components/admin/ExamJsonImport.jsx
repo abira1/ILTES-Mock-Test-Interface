@@ -88,20 +88,37 @@ export function ExamJsonImport({ onClose, onImportSuccess }) {
       setImporting(true);
       const examData = JSON.parse(jsonText);
       
-      // Import to Firebase
-      const examId = await ExamFirebaseService.importExam(examData);
+      // Convert to File/Blob for backend upload
+      const jsonBlob = new Blob([jsonText], { type: 'application/json' });
+      const jsonFile = new File([jsonBlob], 'exam.json', { type: 'application/json' });
       
-      showToast(`Exam imported successfully! ID: ${examId}`, 'success');
+      // Import via backend auto-import API
+      const result = await BackendService.importExamFromJson(jsonFile);
       
-      // Notify parent component
-      if (onImportSuccess) {
-        onImportSuccess(examId);
+      if (result.status === 'success' || result.status === 'failed') {
+        const message = result.status === 'success'
+          ? `Exam imported successfully! ${result.summary.questions_created} questions created.`
+          : `Import had issues. Check details.`;
+        
+        showToast(message, result.status === 'success' ? 'success' : 'warning');
+        
+        // Show warnings if any
+        if (result.warnings && result.warnings.length > 0) {
+          console.warn('Import warnings:', result.warnings);
+        }
+        
+        // Notify parent component
+        if (onImportSuccess && result.exam_id) {
+          onImportSuccess(result.exam_id);
+        }
+        
+        // Close modal after 1 second if successful
+        if (result.status === 'success') {
+          setTimeout(() => {
+            onClose();
+          }, 1000);
+        }
       }
-      
-      // Close modal after 1 second
-      setTimeout(() => {
-        onClose();
-      }, 1000);
     } catch (error) {
       console.error('Import error:', error);
       showToast('Failed to import exam: ' + error.message, 'error');
