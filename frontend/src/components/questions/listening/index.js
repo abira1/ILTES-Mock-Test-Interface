@@ -1,14 +1,28 @@
-// Listening Question Components
-export { default as MultipleChoiceSingle } from './MultipleChoiceSingle';
-export { default as MultipleChoiceMultiple } from './MultipleChoiceMultiple';
-export { default as SentenceCompletion } from './SentenceCompletion';
-export { default as FillInGaps } from './FillInGaps';
-export { default as FormCompletion } from './FormCompletion';
-export { default as FillInGapsShortAnswers } from './FillInGapsShortAnswers';
-export { default as MapLabeling } from './MapLabeling';
-export { default as Matching } from './Matching';
-export { default as TableCompletion } from './TableCompletion';
-export { default as FlowchartCompletion } from './FlowchartCompletion';
+// Import components first
+import MultipleChoiceSingle from './MultipleChoiceSingle';
+import MultipleChoiceMultiple from './MultipleChoiceMultiple';
+import SentenceCompletion from './SentenceCompletion';
+import FillInGaps from './FillInGaps';
+import FormCompletion from './FormCompletion';
+import FillInGapsShortAnswers from './FillInGapsShortAnswers';
+import MapLabeling from './MapLabeling';
+import Matching from './Matching';
+import TableCompletion from './TableCompletion';
+import FlowchartCompletion from './FlowchartCompletion';
+
+// Export components
+export { 
+  MultipleChoiceSingle,
+  MultipleChoiceMultiple,
+  SentenceCompletion,
+  FillInGaps,
+  FormCompletion,
+  FillInGapsShortAnswers,
+  MapLabeling,
+  Matching,
+  TableCompletion,
+  FlowchartCompletion
+};
 
 // Component mapping for dynamic rendering
 export const LISTENING_COMPONENTS = {
