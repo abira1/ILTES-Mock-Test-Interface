@@ -3015,8 +3015,8 @@ ul.list-square,
 
 [connect|class~=itemBody] div[connect|author-class~=borderZigzag]:after {
     bottom: -5px;
-    -moz-/* border-image: url("../images/item/borderZigzag.png") */ 0 0 6 0 / 0 0 6px 0 repeat;
-    /* border-image: url("../images/item/borderZigzag.png") */ 0 0 6 0 / 0 0 6px 0 repeat;
+    /* -moz-border-image: url("../images/item/borderZigzag.png") 0 0 6 0 / 0 0 6px 0 repeat; */
+    /* border-image: url("../images/item/borderZigzag.png") 0 0 6 0 / 0 0 6px 0 repeat; */
 }
 
 [connect|class~=itemBody] div[connect|author-class~=borderWaveTop] {
