@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Upload, CheckCircle, AlertCircle, Eye } from 'lucide-react';
-import BackendService from '../../services/BackendService';
+import { BackendService } from '../../services/BackendService';
 import { useToast } from '../common/Toast';
 
 export function ExamJsonImport({ onClose, onImportSuccess }) {
