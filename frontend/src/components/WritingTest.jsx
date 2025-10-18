@@ -4,6 +4,14 @@ import { BackendService } from '../services/BackendService';
 import FirebaseAuthService from '../services/FirebaseAuthService';
 import { useAuth } from '../contexts/AuthContext';
 import { Clock, User, HelpCircle, EyeOff } from 'lucide-react';
+
+// Import QTI Writing Components
+import {
+  WritingTask1,
+  WritingTask2,
+  WRITING_COMPONENTS
+} from './questions/writing';
+
 import HighlightManager from '../lib/HighlightManager';
 import '../styles/navigation.css';
 
