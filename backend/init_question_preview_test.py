@@ -40,7 +40,7 @@ def create_question_preview_test():
         "id": exam_id,
         "title": "🎯 Question Type Preview - All 25 Types",
         "description": "Comprehensive preview test demonstrating all IELTS question types (2 questions each). For admin testing and demonstration purposes.",
-        "exam_type": "preview",  # Special type for preview
+        "exam_type": "listening",  # Changed from 'preview' to 'listening' so it appears in student dashboard
         "duration_seconds": 7200,  # 120 minutes (2 hours) 
         "question_count": 50,  # 2 questions × 25 types
         "audio_url": "https://audio.jukehost.co.uk/F9irt6LcsYuP93ulaMo42JfXBEcABytV",  # Sample audio
