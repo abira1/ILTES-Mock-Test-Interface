@@ -93,7 +93,7 @@ The role of policy cannot be overstated. Governments must invest in agricultural
         "type": "writing",
         "instructions": "Complete the writing tasks and answer the following questions.",
         "passage_text": None,
-        "created_at": datetime.utcnow()
+        "created_at": now_str
     }
     result3 = await db.sections.insert_one(section3)
     section3_id = str(result3.inserted_id)
