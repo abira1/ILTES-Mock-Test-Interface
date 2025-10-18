@@ -771,3 +771,85 @@ def get_question_types_by_test(test_type: str) -> List[str]:
         qt for qt, schema in QUESTION_TYPE_SCHEMAS.items()
         if schema.get("test_type") == test_type
     ]
+
+
+
+def detect_question_type(question_data: Dict[str, Any]) -> Optional[str]:
+    """
+    Auto-detect question type from question data structure
+    
+    Args:
+        question_data: Dictionary containing question fields
+        
+    Returns:
+        Detected question type string or None if cannot detect
+    """
+    # If type is explicitly provided, use it
+    if "type" in question_data:
+        q_type = question_data["type"]
+        if q_type in QUESTION_TYPE_SCHEMAS:
+            return q_type
+    
+    # Try to detect based on structure
+    # Check for wordlist (sentence_completion_wordlist)
+    if "wordlist" in question_data and question_data.get("wordlist"):
+        return "sentence_completion_wordlist"
+    
+    # Check for options (multiple choice variants)
+    if "options" in question_data and question_data.get("options"):
+        options = question_data["options"]
+        if isinstance(options, list) and len(options) > 0:
+            # TRUE/FALSE/NOT GIVEN
+            if "TRUE" in options and "FALSE" in options and "NOT GIVEN" in options:
+                return "true_false_not_given"
+            # YES/NO/NOT GIVEN
+            if "YES" in options and "NO" in options and "NOT GIVEN" in options:
+                return "yes_no_not_given"
+            # Regular multiple choice
+            return "multiple_choice"
+    
+    # Check for answer_key to determine short answer types
+    if "answer_key" in question_data:
+        # Could be short_answer, sentence_completion, etc.
+        # Default to short_answer_reading if no other indicators
+        return "short_answer_reading"
+    
+    # Default fallback
+    return None
+
+
+def validate_question_structure(question_data: Dict[str, Any], question_type: str) -> tuple[bool, List[str]]:
+    """
+    Validate question data structure against expected schema
+    
+    Args:
+        question_data: Dictionary containing question fields
+        question_type: The question type to validate against
+        
+    Returns:
+        Tuple of (is_valid: bool, errors: List[str])
+    """
+    errors = []
+    
+    # Check if question type exists
+    if question_type not in QUESTION_TYPE_SCHEMAS:
+        return False, [f"Unknown question type: {question_type}"]
+    
+    schema = QUESTION_TYPE_SCHEMAS[question_type]
+    required_fields = schema.get("required_fields", [])
+    
+    # Check required fields
+    for field in required_fields:
+        if field not in question_data or not question_data[field]:
+            errors.append(f"Missing required field: {field}")
+    
+    # Validate specific field types
+    if "options" in required_fields and "options" in question_data:
+        if not isinstance(question_data["options"], list):
+            errors.append("Field 'options' must be a list")
+    
+    if "wordlist" in required_fields and "wordlist" in question_data:
+        if not isinstance(question_data["wordlist"], list):
+            errors.append("Field 'wordlist' must be a list")
+    
+    return len(errors) == 0, errors
