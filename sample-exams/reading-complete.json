@@ -1,0 +1,222 @@
+{
+  "id": "sample-reading-complete-2025",
+  "type": "reading",
+  "title": "IELTS Reading Practice Test - Complete",
+  "duration": 3600,
+  "published": true,
+  "sections": [
+    {
+      "index": 1,
+      "title": "Passage 1 - The History of Coffee",
+      "passageText": "Coffee is one of the world's most popular beverages, with billions of cups consumed every day. The coffee plant, Coffea, originated in Ethiopia, where legend says a goat herder named Kaldi discovered the energizing effects of coffee beans after noticing his goats became more energetic after eating the berries.\n\nFrom Ethiopia, coffee spread to the Arabian Peninsula, where it was first cultivated in Yemen. By the 15th century, coffee was being grown in the Yemeni district of Arabia and by the 16th century, it was known in Persia, Egypt, Syria, and Turkey. Coffee was not only enjoyed in homes but also in public coffee houses, called qahveh khaneh, which began to appear in cities across the Near East.\n\nCoffee houses quickly became centers of social activity and communication, where people gathered to drink coffee, listen to music, play chess, and discuss news of the day. These establishments were so important to the social and political life of the time that they were often called 'Schools of the Wise.'\n\nEuropean travelers to the Near East brought back tales of the unusual dark black beverage. By the 17th century, coffee had made its way to Europe and was becoming popular across the continent. Some people reacted to this new beverage with suspicion or fear, calling it the 'bitter invention of Satan.' However, Pope Clement VIII tasted coffee and gave it his approval, helping it gain acceptance.\n\nCoffee houses began to appear in major European cities, and they became important centers for intellectual exchange. In England, coffee houses became known as 'penny universities' because for the price of a penny, one could purchase a cup of coffee and engage in stimulating conversation.\n\nToday, coffee is grown in over 70 countries, with Brazil, Vietnam, and Colombia being the top producers. The coffee industry employs millions of people worldwide and contributes significantly to the economies of many developing countries.",
+      "questions": [
+        {
+          "index": 1,
+          "type": "true_false_not_given",
+          "instructions": "Do the following statements agree with the information in the passage? Write TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
+          "payload": {
+            "statements": [
+              { "id": 1, "text": "Coffee originated in Arabia.", "correctAnswer": "FALSE" },
+              { "id": 2, "text": "Coffee houses were called 'Schools of the Wise'.", "correctAnswer": "TRUE" },
+              { "id": 3, "text": "Pope Clement VIII banned coffee in Europe.", "correctAnswer": "FALSE" },
+              { "id": 4, "text": "Coffee houses in England were expensive to visit.", "correctAnswer": "FALSE" },
+              { "id": 5, "text": "Coffee production has increased every year.", "correctAnswer": "NOT GIVEN" }
+            ]
+          }
+        },
+        {
+          "index": 6,
+          "type": "multiple_choice_single",
+          "instructions": "Choose the correct letter, A, B, C or D.",
+          "payload": {
+            "prompt": "According to the passage, who discovered coffee?",
+            "options": [
+              { "label": "A", "text": "A Yemeni farmer" },
+              { "label": "B", "text": "An Ethiopian goat herder" },
+              { "label": "C", "text": "An Arabian merchant" },
+              { "label": "D", "text": "A European traveler" }
+            ],
+            "correctAnswer": "B"
+          }
+        },
+        {
+          "index": 7,
+          "type": "matching_headings",
+          "instructions": "The passage has six paragraphs (A-F). Choose the correct heading for paragraphs B-E from the list of headings below.",
+          "payload": {
+            "headings": [
+              { "id": "i", "text": "Coffee spreads to Arabia" },
+              { "id": "ii", "text": "The role of coffee houses" },
+              { "id": "iii", "text": "Coffee arrives in Europe" },
+              { "id": "iv", "text": "Modern coffee production" },
+              { "id": "v", "text": "The discovery of coffee" },
+              { "id": "vi", "text": "Coffee houses in England" },
+              { "id": "vii", "text": "Religious controversy" }
+            ],
+            "paragraphs": [
+              { "id": "B", "label": "Paragraph B", "correctHeading": "i" },
+              { "id": "C", "label": "Paragraph C", "correctHeading": "ii" },
+              { "id": "D", "label": "Paragraph D", "correctHeading": "iii" },
+              { "id": "E", "label": "Paragraph E", "correctHeading": "vi" }
+            ]
+          }
+        },
+        {
+          "index": 11,
+          "type": "sentence_completion",
+          "instructions": "Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+          "payload": {
+            "sentences": [
+              "Kaldi's goats became more ____ after eating coffee berries.",
+              "By the 16th century, coffee was known in Turkey, Egypt, Syria, and ____."
+            ],
+            "correctAnswers": [
+              "energetic",
+              "Persia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "title": "Passage 2 - Urban Green Spaces",
+      "passageText": "Urban green spaces, including parks, gardens, and tree-lined streets, play a crucial role in maintaining the health and well-being of city residents. These areas provide numerous environmental, social, and economic benefits that are increasingly recognized by urban planners and policymakers worldwide.\n\nFrom an environmental perspective, green spaces help to improve air quality by absorbing pollutants and producing oxygen. Trees and plants act as natural air filters, removing harmful particles from the atmosphere. Additionally, green spaces help to regulate urban temperatures through a process known as evapotranspiration, where plants release water vapor that cools the surrounding air. This cooling effect is particularly important in combating the urban heat island effect, where cities become significantly warmer than surrounding rural areas due to heat-absorbing surfaces like concrete and asphalt.\n\nGreen spaces also play a vital role in managing stormwater runoff. Permeable surfaces in parks and gardens allow rainwater to be absorbed into the ground, reducing the burden on drainage systems and decreasing the risk of flooding. This natural water management system helps to replenish groundwater supplies and filter pollutants before they reach water bodies.\n\nThe social benefits of urban green spaces are equally significant. Studies have shown that access to parks and green areas is associated with improved mental health, reduced stress levels, and enhanced overall well-being. Green spaces provide opportunities for physical activity, social interaction, and connection with nature, all of which contribute to healthier, happier communities. Children who grow up with access to green spaces show better cognitive development and have lower rates of behavioral problems.\n\nEconomically, well-maintained green spaces can increase property values in surrounding areas. Research has demonstrated that homes located near parks and green areas typically sell for higher prices than similar properties without such access. Furthermore, attractive green spaces can boost local tourism and attract businesses, contributing to economic development.\n\nDespite these benefits, many cities face challenges in creating and maintaining adequate green spaces. Limited land availability, competing demands for urban development, and budget constraints often make it difficult to preserve or expand green areas. However, innovative solutions are emerging, such as rooftop gardens, vertical green walls, and the conversion of abandoned industrial sites into parks.\n\nAs urbanization continues to accelerate globally, the importance of integrating green spaces into city planning becomes ever more critical. Forward-thinking cities are recognizing that investing in green infrastructure is not a luxury but a necessity for creating sustainable, livable urban environments for future generations.",
+      "questions": [
+        {
+          "index": 14,
+          "type": "matching_features",
+          "instructions": "Match each benefit (14-18) with the correct category (A-C). You may use any letter more than once.",
+          "payload": {
+            "prompt": "Categories:\nA - Environmental benefits\nB - Social benefits\nC - Economic benefits",
+            "features": [
+              { "id": 14, "text": "Improved air quality", "correctAnswer": "A" },
+              { "id": 15, "text": "Increased property values", "correctAnswer": "C" },
+              { "id": 16, "text": "Better mental health", "correctAnswer": "B" },
+              { "id": 17, "text": "Temperature regulation", "correctAnswer": "A" },
+              { "id": 18, "text": "Enhanced cognitive development", "correctAnswer": "B" }
+            ]
+          }
+        },
+        {
+          "index": 19,
+          "type": "summary_completion_list",
+          "instructions": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the box for each answer.",
+          "payload": {
+            "summary": "Urban green spaces provide multiple benefits. Trees act as natural air ____, removing harmful particles. They also help regulate temperature through ____. Green spaces manage ____ by allowing water to be absorbed into the ground. Studies show that access to parks is associated with improved ____ and reduced stress.",
+            "wordBank": [
+              "filters",
+              "evapotranspiration",
+              "stormwater runoff",
+              "mental health",
+              "physical activity",
+              "property values",
+              "cognitive development",
+              "water vapor"
+            ],
+            "blanks": [
+              { "correctAnswer": "filters" },
+              { "correctAnswer": "evapotranspiration" },
+              { "correctAnswer": "stormwater runoff" },
+              { "correctAnswer": "mental health" }
+            ]
+          }
+        },
+        {
+          "index": 23,
+          "type": "yes_no_not_given",
+          "instructions": "Do the following statements agree with the views of the writer in the passage? Write YES if the statement agrees with the views of the writer, NO if it contradicts the views, or NOT GIVEN if it is impossible to say what the writer thinks about this.",
+          "payload": {
+            "statements": [
+              { "id": 23, "text": "All cities have sufficient green spaces.", "correctAnswer": "NO" },
+              { "id": 24, "text": "Rooftop gardens are a good solution for limited space.", "correctAnswer": "YES" },
+              { "id": 25, "text": "Private gardens are more important than public parks.", "correctAnswer": "NOT GIVEN" },
+              { "id": 26, "text": "Green spaces should be a priority in urban planning.", "correctAnswer": "YES" },
+              { "id": 27, "text": "Urban development always reduces green spaces.", "correctAnswer": "NOT GIVEN" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "title": "Passage 3 - The Science of Sleep",
+      "passageText": "Sleep is a fundamental biological process that affects nearly every aspect of human health and functioning, yet it remains one of the most mysterious and least understood areas of neuroscience. While we spend approximately one-third of our lives asleep, scientists are still working to fully comprehend why we sleep and what exactly happens during this seemingly inactive state.\n\nThe sleep-wake cycle is regulated by two main processes: the circadian rhythm and sleep homeostasis. The circadian rhythm is an internal biological clock that operates on roughly a 24-hour cycle, influenced by external cues such as light and darkness. This rhythm affects various physiological processes, including hormone production, body temperature, and metabolism. The suprachiasmatic nucleus (SCN) in the hypothalamus serves as the master clock, coordinating these rhythms throughout the body.\n\nSleep homeostasis, on the other hand, refers to the body's need for sleep that builds up during waking hours. The longer we stay awake, the stronger the drive to sleep becomes. This process is thought to be mediated by the accumulation of adenosine, a neurotransmitter that promotes sleepiness. When we sleep, adenosine levels decrease, and the sleep pressure dissipates.\n\nSleep itself is not a uniform state but consists of distinct stages that cycle throughout the night. These stages are broadly categorized into rapid eye movement (REM) sleep and non-REM sleep, which is further divided into three stages (N1, N2, and N3). Each stage is characterized by specific patterns of brain activity, eye movements, and muscle tone. N3, also known as slow-wave sleep or deep sleep, is particularly important for physical restoration and memory consolidation. REM sleep, during which most dreaming occurs, plays a crucial role in emotional regulation and procedural memory.\n\nThe functions of sleep are multifaceted and extend far beyond simple rest and recovery. During sleep, the brain engages in critical maintenance activities, including the clearance of metabolic waste products through the glymphatic system. This recently discovered waste clearance system is most active during sleep and helps remove potentially harmful proteins that accumulate during waking hours, including those associated with neurodegenerative diseases such as Alzheimer's.\n\nSleep also plays a vital role in learning and memory. Research has demonstrated that sleep facilitates the consolidation of memories, transferring information from short-term to long-term storage. Different stages of sleep appear to be involved in consolidating different types of memories, with slow-wave sleep being important for declarative memories (facts and events) and REM sleep being crucial for procedural memories (skills and tasks).\n\nThe immune system also benefits significantly from adequate sleep. During sleep, the body produces and releases cytokines, proteins that help fight infection and inflammation. Sleep deprivation has been shown to reduce the production of these protective proteins and decrease the effectiveness of immune responses, making individuals more susceptible to illness.\n\nDespite the clear importance of sleep, modern society presents numerous challenges to obtaining adequate rest. Artificial lighting, electronic devices, irregular work schedules, and increased stress levels all contribute to widespread sleep problems. Chronic sleep deprivation has been linked to a range of health issues, including obesity, diabetes, cardiovascular disease, and mental health disorders.\n\nUnderstanding the science of sleep has important implications for public health and medical practice. As research continues to unveil the complex mechanisms and functions of sleep, it becomes increasingly clear that prioritizing sleep is not a luxury but a biological necessity. Healthcare providers, policymakers, and individuals must recognize sleep as a pillar of health, alongside nutrition and physical activity, and take steps to promote healthy sleep habits across all segments of society.",
+      "questions": [
+        {
+          "index": 28,
+          "type": "matching_sentence_endings",
+          "instructions": "Complete each sentence with the correct ending, A-H, below.",
+          "payload": {
+            "sentenceStarts": [
+              { "id": 28, "text": "The circadian rhythm" },
+              { "id": 29, "text": "Sleep homeostasis" },
+              { "id": 30, "text": "The suprachiasmatic nucleus" }
+            ],
+            "endings": [
+              { "label": "A", "text": "is influenced by light and darkness." },
+              { "label": "B", "text": "produces cytokines during sleep." },
+              { "label": "C", "text": "refers to the increasing need for sleep." },
+              { "label": "D", "text": "acts as the body's master clock." },
+              { "label": "E", "text": "removes metabolic waste products." },
+              { "label": "F", "text": "consolidates procedural memories." },
+              { "label": "G", "text": "releases adenosine into the brain." },
+              { "label": "H", "text": "regulates hormone production." }
+            ],
+            "correctAnswers": {
+              "28": "A",
+              "29": "C",
+              "30": "D"
+            }
+          }
+        },
+        {
+          "index": 31,
+          "type": "note_completion",
+          "instructions": "Complete the notes below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+          "payload": {
+            "notes": "Sleep Stages:\n\n• Non-REM Sleep:\n  - Stage N1: Light sleep\n  - Stage N2: Intermediate sleep\n  - Stage N3: Also called ____ or deep sleep\n\n• REM Sleep:\n  - Most ____ occurs during this stage\n  - Important for emotional regulation\n  - Helps consolidate ____ memory\n\n• The ____ system removes waste products during sleep\n\n• Sleep helps produce ____, which fight infection",
+            "blanks": [
+              { "correctAnswer": "slow-wave sleep" },
+              { "correctAnswer": "dreaming" },
+              { "correctAnswer": "procedural" },
+              { "correctAnswer": "glymphatic" },
+              { "correctAnswer": "cytokines" }
+            ]
+          }
+        },
+        {
+          "index": 36,
+          "type": "multiple_choice_multiple",
+          "instructions": "Choose TWO letters, A-E. Which TWO health problems are mentioned as being linked to chronic sleep deprivation?",
+          "payload": {
+            "options": [
+              { "label": "A", "text": "Obesity" },
+              { "label": "B", "text": "Cancer" },
+              { "label": "C", "text": "Diabetes" },
+              { "label": "D", "text": "Arthritis" },
+              { "label": "E", "text": "Allergies" }
+            ],
+            "correctAnswers": ["A", "C"],
+            "maxSelections": 2
+          }
+        },
+        {
+          "index": 38,
+          "type": "summary_completion_text",
+          "instructions": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+          "payload": {
+            "summary": "Sleep is regulated by two main processes: the ____ rhythm and sleep homeostasis. During sleep, the brain removes ____ through the glymphatic system. Different types of memories are consolidated during different sleep stages, with ____ being important for facts and events. Modern society presents challenges to adequate rest, including artificial lighting and ____. Research shows that sleep should be considered a biological ____ rather than a luxury.",
+            "blanks": [
+              { "correctAnswer": "circadian" },
+              { "correctAnswer": "metabolic waste" },
+              { "correctAnswer": "slow-wave sleep" },
+              { "correctAnswer": "electronic devices" },
+              { "correctAnswer": "necessity" }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
