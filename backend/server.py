@@ -26,6 +26,7 @@ from new_question_type_schemas import (
     is_auto_gradable,
     get_all_question_types
 )
+from grading_engine import grade_submission
 from auto_import_handler import AutoImportHandler
 
 
