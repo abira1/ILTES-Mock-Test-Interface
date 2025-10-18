@@ -68,6 +68,7 @@ class ExamCreate(BaseModel):
     description: str
     duration_seconds: int = 1800
     is_demo: bool = False
+    exam_type: str = "listening"  # Default to listening, can be "listening", "reading", or "writing"
 
 class ExamUpdate(BaseModel):
     title: Optional[str] = None
