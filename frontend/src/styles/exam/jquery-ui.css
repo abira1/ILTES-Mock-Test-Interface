@@ -973,7 +973,7 @@ body .ui-tooltip {
     border: 1px solid #aaaaaa/*{borderColorHeader}*/
     ;
     background: #cccccc/*{bgColorHeader}*/
-    url(../images/ui/ui-bg_highlight-soft_75_cccccc_1x100.png)/*{bgImgUrlHeader}*/
+    /* url(../images/ui/ui-bg_highlight-soft_75_cccccc_1x100.png) *//*{bgImgUrlHeader}*/
     50%/*{bgHeaderXPos}*/
     50%/*{bgHeaderYPos}*/
     repeat-x/*{bgHeaderRepeat}*/
