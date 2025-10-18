@@ -477,6 +477,21 @@ function CreateExamModal({ onClose, onExamCreated }) {
               </div>
 
               <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Test Type*</label>
+                <select
+                  name="exam_type"
+                  value={formData.exam_type}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-md p-2"
+                  disabled={isSubmitting}
+                >
+                  <option value="listening">Listening</option>
+                  <option value="reading">Reading</option>
+                  <option value="writing">Writing</option>
+                </select>
+              </div>
+
+              <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Test Duration (minutes)</label>
                 <input
                   type="number"
