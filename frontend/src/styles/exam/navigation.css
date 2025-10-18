@@ -307,11 +307,11 @@
 #navigation-bar .minimise {
     width: 28px;
     height: 28px;
-    /* background: url("../images/navigation/iconMinimise.png") */ no-repeat left top;
+    /* background: url("../images/navigation/iconMinimise.png") no-repeat left top; */
 }
 
 #navigation-bar .maximise {
     width: 28px;
     height: 28px;
-    /* background: url("../images/navigation/iconMaximise.png") */ no-repeat left top;
+    /* background: url("../images/navigation/iconMaximise.png") no-repeat left top; */
 }
