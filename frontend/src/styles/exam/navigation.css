@@ -55,7 +55,7 @@
     position: absolute;
     font-size: 0.9em;
     margin-bottom: 1em;
-    background: #333 url(../images/navigation/navigation-popup.png) repeat-x left top;
+    background: #333 /* url(../images/navigation/navigation-popup.png) */ repeat-x left top;
     border: 1px solid #202020;
     padding: 3px;
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
@@ -153,7 +153,7 @@
     position: relative;
     display: block;
     background-color: #000;
-    background-image: url("../images/navigation/button.png");
+    /* background-image: url("../images/navigation/button.png"); */
     text-align: center;
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
@@ -230,7 +230,7 @@
 #navigation-bar [connect|class~=testPart] a[connect|state~=completed]:not([connect|state~=current]) {
     border-color: #fff;
     background-color: #fff;
-    background-image: url("../images/navigation/button-done.png");
+    /* background-image: url("../images/navigation/button-done.png"); */
     color: #000;
 }
 
@@ -252,7 +252,7 @@
 #navigation-bar [connect|class~=testPart] ul a[connect|state~=current]:hover,
 #navigation-bar [connect|class~=testPart] ul a[connect|state~=current]:focus {
     border-color: #34b2f1;
-    background-image: url("../images/navigation/button-current.png");
+    /* background-image: url("../images/navigation/button-current.png"); */
     text-shadow: 0 0 2px #000, 0 0 2px #000;
 }
 
@@ -307,11 +307,11 @@
 #navigation-bar .minimise {
     width: 28px;
     height: 28px;
-    background: url("../images/navigation/iconMinimise.png") no-repeat left top;
+    /* background: url("../images/navigation/iconMinimise.png") */ no-repeat left top;
 }
 
 #navigation-bar .maximise {
     width: 28px;
     height: 28px;
-    background: url("../images/navigation/iconMaximise.png") no-repeat left top;
+    /* background: url("../images/navigation/iconMaximise.png") */ no-repeat left top;
 }
