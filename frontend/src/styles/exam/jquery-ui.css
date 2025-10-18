@@ -1948,7 +1948,7 @@ body .ui-tooltip {
 
 .ui-widget-overlay {
     background: #aaaaaa/*{bgColorOverlay}*/
-    url(../images/ui/ui-bg_flat_0_aaaaaa_40x100.png)/*{bgImgUrlOverlay}*/
+    /* url(../images/ui/ui-bg_flat_0_aaaaaa_40x100.png) *//*{bgImgUrlOverlay}*/
     50%/*{bgOverlayXPos}*/
     50%/*{bgOverlayYPos}*/
     repeat-x/*{bgOverlayRepeat}*/
@@ -1966,7 +1966,7 @@ body .ui-tooltip {
     padding: 8px/*{thicknessShadow}*/
     ;
     background: #aaaaaa/*{bgColorShadow}*/
-    url(../images/ui/ui-bg_flat_0_aaaaaa_40x100.png)/*{bgImgUrlShadow}*/
+    /* url(../images/ui/ui-bg_flat_0_aaaaaa_40x100.png) *//*{bgImgUrlShadow}*/
     50%/*{bgShadowXPos}*/
     50%/*{bgShadowYPos}*/
     repeat-x/*{bgShadowRepeat}*/
