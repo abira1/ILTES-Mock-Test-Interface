@@ -132,7 +132,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": {"1": "Sarah Johnson", "2": "teacher"}
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q3-4: Multiple Choice Single
         {
@@ -150,7 +150,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": "C"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         {
             "exam_id": COMPREHENSIVE_EXAM_ID,
@@ -167,7 +167,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": "B"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q5-6: Multiple Choice Multiple
         {
@@ -187,7 +187,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "max_selections": 2,
                 "answer_key": ["A", "C"]
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q7-8: Sentence Completion
         {
@@ -202,7 +202,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": {"7": "September", "8": "materials"}
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q9: Table Completion
         {
@@ -223,7 +223,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": {"9": "Yoga class"}
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q10: Matching
         {
@@ -242,7 +242,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": {"Dr. Smith": "C"}
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         }
     ]
     
@@ -259,7 +259,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "prompt": "Climate change is affecting agricultural productivity worldwide.",
                 "answer_key": "TRUE"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         {
             "exam_id": COMPREHENSIVE_EXAM_ID,
@@ -270,7 +270,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "prompt": "All regions will experience a 25% decline in crop yields by 2050.",
                 "answer_key": "FALSE"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q13-14: Multiple Choice Single
         {
@@ -288,7 +288,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": "B"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         {
             "exam_id": COMPREHENSIVE_EXAM_ID,
@@ -305,7 +305,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": "C"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q15-16: Matching Headings
         {
@@ -323,7 +323,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": "A"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         {
             "exam_id": COMPREHENSIVE_EXAM_ID,
@@ -340,7 +340,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": "B"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q17-18: Sentence Completion
         {
@@ -353,7 +353,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "sentence": "Farmers are developing crop varieties that are resistant to ____.",
                 "answer_key": "drought"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         {
             "exam_id": COMPREHENSIVE_EXAM_ID,
@@ -365,7 +365,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "sentence": "Coordinated ____ is necessary to ensure future food supplies.",
                 "answer_key": "global action"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q19-20: Summary Completion
         {
@@ -383,7 +383,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": {"19": "precipitation", "20": "adaptation"}
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         }
     ]
     
@@ -404,7 +404,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "task_number": 1,
                 "answer_key": None
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q22: Writing Task 2
         {
@@ -420,7 +420,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "task_number": 2,
                 "answer_key": None
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q23-24: Note Completion (related to writing context)
         {
@@ -437,7 +437,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": {"23": "topic", "24": "opinion"}
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q25-26: Flowchart Completion
         {
@@ -454,7 +454,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": {"25": "Draft", "26": "Edit"}
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q27-30: Matching Features
         {
@@ -478,7 +478,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                     "Thesis statement": "A"
                 }
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         }
     ]
     
@@ -495,7 +495,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "prompt": "AI can analyze medical __31__ with high accuracy.",
                 "answer_key": "images"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q32: Multiple Choice Single
         {
@@ -513,7 +513,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": "B"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q33: True/False/Not Given
         {
@@ -525,7 +525,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "prompt": "AI-powered diagnostic tools can help identify diseases earlier.",
                 "answer_key": "TRUE"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q34: Sentence Completion
         {
@@ -538,7 +538,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "sentence": "The integration of AI requires careful ethical consideration and robust ____.",
                 "answer_key": "regulatory frameworks"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q35: Matching Sentence Endings
         {
@@ -557,7 +557,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": {"Machine learning algorithms can": "A"}
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q36: Table Completion
         {
@@ -578,7 +578,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": {"36": "Data privacy"}
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q37: Multiple Choice Multiple
         {
@@ -598,7 +598,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "max_selections": 2,
                 "answer_key": ["A", "C"]
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q38: Summary Completion from Text
         {
@@ -611,7 +611,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "summary_text": "AI is transforming healthcare through __38__ that can diagnose diseases accurately.",
                 "answer_key": "machine learning algorithms"
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q39: Map Labeling (conceptual diagram)
         {
@@ -628,7 +628,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 "options": ["Diagnostic tool", "Patient record", "Surgery room", "Pharmacy"],
                 "answer_key": {"39": "Diagnostic tool"}
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         },
         # Q40: Form Completion
         {
@@ -643,7 +643,7 @@ Despite these advances, challenges remain. Data privacy concerns, algorithmic bi
                 ],
                 "answer_key": {"40": "Privacy"}
             },
-            "created_at": datetime.utcnow()
+            "created_at": now_str
         }
     ]
     
