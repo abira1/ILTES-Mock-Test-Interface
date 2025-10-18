@@ -125,8 +125,8 @@ const ExamInterface = ({ examId }) => {
     }
 
     try {
-      const { FirebaseService } = await import('../../services/FirebaseService');
-      await FirebaseService.submitExam(examId, {
+      const { default: ExamFirebaseService } = await import('../../services/ExamFirebaseService');
+      await ExamFirebaseService.submitExam(examId, {
         answers,
         notes,
         highlights,
