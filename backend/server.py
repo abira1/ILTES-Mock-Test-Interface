@@ -21,6 +21,7 @@ from init_comprehensive_test import init_comprehensive_test
 from auth_service import AuthService
 from ai_import_service import get_router as get_ai_import_router
 from track_service import get_router as get_track_router
+from auto_import_handler import router as auto_import_router
 from new_question_type_schemas import (
     get_question_type_info,
     get_grading_method,
