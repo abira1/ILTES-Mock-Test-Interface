@@ -338,10 +338,16 @@ class AutoImportHandler:
 # API ENDPOINTS
 # ============================================
 
+# Database dependency function
+def get_db():
+    """Get database instance - will be replaced when registered in main app"""
+    from server import db
+    return db
+
 @router.post("/api/admin/import-test-json")
 async def import_test_from_json(
     file: UploadFile = File(...),
-    db: AsyncIOMotorDatabase = Depends(lambda: None)  # Replace with actual DB dependency
+    db: AsyncIOMotorDatabase = Depends(get_db)
 ):
     """
     Upload a JSON file and automatically import as IELTS test
