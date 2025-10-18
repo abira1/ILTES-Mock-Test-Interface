@@ -231,6 +231,7 @@ async def create_exam(exam_data: ExamCreate):
             "id": exam_id,
             "title": exam_data.title,
             "description": exam_data.description,
+            "exam_type": exam_data.exam_type,  # Add exam_type field
             "audio_url": None,
             "audio_source_method": None,
             "loop_audio": False,
