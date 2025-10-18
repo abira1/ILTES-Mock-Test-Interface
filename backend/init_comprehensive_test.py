@@ -34,7 +34,7 @@ async def init_comprehensive_test():
         "id": COMPREHENSIVE_EXAM_ID,
         "title": "Comprehensive IELTS Practice Test - All Question Types",
         "description": "A complete practice test with 40 questions covering all question types across Listening, Reading, Writing, and Mixed sections",
-        "exam_type": "comprehensive",
+        "exam_type": "listening",
         "duration_seconds": 7200,  # 120 minutes (2 hours)
         "question_count": 40,
         "published": True,
