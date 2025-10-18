@@ -62,12 +62,12 @@ const ExamInterface = ({ examId }) => {
   const loadExam = async () => {
     try {
       // Load exam from Firebase
-      const { FirebaseService } = await import('../../services/FirebaseService');
-      const examData = await FirebaseService.getExam(examId);
+      const { default: ExamFirebaseService } = await import('../../services/ExamFirebaseService');
+      const examData = await ExamFirebaseService.getExam(examId);
       setExam(examData);
       
       // Load progress if exists
-      const progress = await FirebaseService.loadProgress(examId);
+      const progress = await ExamFirebaseService.loadProgress(examId);
       if (progress) {
         setAnswers(progress.answers || {});
         setReviewMarked(progress.reviewMarked || []);
