@@ -105,8 +105,8 @@ const ExamInterface = ({ examId }) => {
 
   const saveProgress = async () => {
     try {
-      const { FirebaseService } = await import('../../services/FirebaseService');
-      await FirebaseService.saveProgress(examId, {
+      const { default: ExamFirebaseService } = await import('../../services/ExamFirebaseService');
+      await ExamFirebaseService.saveProgress(examId, {
         currentQuestion,
         answers,
         reviewMarked,
