@@ -390,6 +390,7 @@ function CreateExamModal({ onClose, onExamCreated }) {
     title: '',
     description: '',
     duration_seconds: 1800,
+    exam_type: 'listening',
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
