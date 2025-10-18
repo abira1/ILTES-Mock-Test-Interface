@@ -189,6 +189,20 @@ export function TestManagement() {
           <p className="text-gray-600">Create and manage IELTS Listening tests</p>
         </div>
         <div className="flex space-x-3">
+          <button
+            onClick={() => setShowAudioManager(true)}
+            className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-4 py-2 rounded-md flex items-center shadow-md transition-all"
+          >
+            <Music className="w-4 h-4 mr-2" />
+            Manage Audio
+          </button>
+          <button
+            onClick={() => setShowJsonImport(true)}
+            className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-md flex items-center shadow-md transition-all"
+          >
+            <FileJson className="w-4 h-4 mr-2" />
+            Import JSON
+          </button>
           <Link
             to="/exam/question-type-preview-test"
             target="_blank"
