@@ -394,6 +394,7 @@ export function ReadingTest({ examId }) {
       
       case 'multiple_choice_multiple_reading':
         return <MultipleChoiceMultiple question={question} answer={answer} onChange={onChange} />;
+      
       case 'matching_draggable':
         // Handle matching draggable questions with multiple sub-questions
         const questions = question.payload?.questions || [];
