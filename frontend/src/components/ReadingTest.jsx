@@ -4,19 +4,29 @@ import { BackendService } from '../services/BackendService';
 import FirebaseAuthService from '../services/FirebaseAuthService';
 import { useAuth } from '../contexts/AuthContext';
 import { Clock, User, HelpCircle, EyeOff } from 'lucide-react';
+
+// Import QTI Reading Components from questions/reading folder
+import {
+  MultipleChoiceSingle,
+  MultipleChoiceMultiple,
+  TrueFalseNotGiven,
+  SentenceCompletion,
+  NoteCompletion,
+  MatchingHeadings,
+  MatchingFeatures,
+  MatchingSentenceEndings,
+  SummaryCompletionList,
+  SummaryCompletionText,
+  TableCompletion,
+  FlowchartCompletion,
+  READING_COMPONENTS
+} from './questions/reading';
+
+// Import legacy components for backward compatibility
 import { MatchingParagraphs } from './reading/MatchingParagraphs';
-import { SentenceCompletion } from './reading/SentenceCompletion';
-import { TrueFalseNotGiven } from './reading/TrueFalseNotGiven';
 import { ShortAnswerReading } from './reading/ShortAnswerReading';
 import { MatchingDraggable } from './questions/MatchingDraggable';
-import { MultipleChoiceMultiple } from './questions/MultipleChoiceMultiple';
-import { NoteCompletion } from './questions/NoteCompletion';
-import { MatchingHeadings } from './questions/MatchingHeadings';
-import { SummaryCompletionList } from './questions/SummaryCompletionList';
-import { FlowchartCompletion } from './questions/FlowchartCompletion';
-import { MatchingSentenceEndings } from './questions/MatchingSentenceEndings';
-import { TableCompletion } from './questions/TableCompletion';
-import { MatchingFeatures } from './questions/MatchingFeatures';
+
 import HighlightManager from '../lib/HighlightManager';
 import '../styles/navigation.css';
 
