@@ -3026,8 +3026,8 @@ ul.list-square,
 
 [connect|class~=itemBody] div[connect|author-class~=borderWaveTop]:after {
     top: -10px;
-    -moz-/* border-image: url("../images/item/borderWaveTop.png") */ 15 0 0 0 / 15px 0 0 0 stretch;
-    /* border-image: url("../images/item/borderWaveTop.png") */ 15 0 0 0 / 15px 0 0 0 stretch;
+    /* -moz-border-image: url("../images/item/borderWaveTop.png") 15 0 0 0 / 15px 0 0 0 stretch; */
+    /* border-image: url("../images/item/borderWaveTop.png") 15 0 0 0 / 15px 0 0 0 stretch; */
 }
 
 [connect|class~=itemBody] div[connect|author-class~=borderWaveBottom] {
