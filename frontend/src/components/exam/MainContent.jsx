@@ -1,10 +1,32 @@
 import React, { forwardRef } from 'react';
-// Import question type components
+
+// Listening question types
 import FillInGaps from './questions/listening/FillInGaps';
 import FillInGapsShortAnswers from './questions/listening/FillInGapsShortAnswers';
-import MultipleChoiceSingle from './questions/listening/MultipleChoiceSingle';
-import MultipleChoiceMultiple from './questions/listening/MultipleChoiceMultiple';
+import FlowchartCompletionListening from './questions/listening/FlowchartCompletion';
+import FormCompletion from './questions/listening/FormCompletion';
+import MapLabeling from './questions/listening/MapLabeling';
+import MatchingListening from './questions/listening/Matching';
+import MultipleChoiceMultipleListening from './questions/listening/MultipleChoiceMultiple';
+import MultipleChoiceSingleListening from './questions/listening/MultipleChoiceSingle';
+import SentenceCompletionListening from './questions/listening/SentenceCompletion';
+import TableCompletionListening from './questions/listening/TableCompletion';
+
+// Reading question types
+import FlowchartCompletionReading from './questions/reading/FlowchartCompletion';
+import MatchingFeatures from './questions/reading/MatchingFeatures';
+import MatchingHeadings from './questions/reading/MatchingHeadings';
+import MatchingSentenceEndings from './questions/reading/MatchingSentenceEndings';
+import MultipleChoiceMultipleReading from './questions/reading/MultipleChoiceMultiple';
+import MultipleChoiceSingleReading from './questions/reading/MultipleChoiceSingle';
+import NoteCompletion from './questions/reading/NoteCompletion';
+import SentenceCompletionReading from './questions/reading/SentenceCompletion';
+import SummaryCompletionList from './questions/reading/SummaryCompletionList';
+import SummaryCompletionText from './questions/reading/SummaryCompletionText';
+import TableCompletionReading from './questions/reading/TableCompletion';
 import TrueFalseNotGiven from './questions/reading/TrueFalseNotGiven';
+
+// Writing question types
 import WritingTask1 from './questions/writing/WritingTask1';
 import WritingTask2 from './questions/writing/WritingTask2';
 
