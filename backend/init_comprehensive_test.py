@@ -80,7 +80,7 @@ Climate change poses significant challenges to global food security. Rising temp
 However, adaptation strategies offer hope. Farmers are implementing water-efficient irrigation systems, developing drought-resistant crop varieties, and adopting sustainable farming practices. Precision agriculture, which uses technology to optimize crop management, is becoming increasingly important. These innovations help maximize yields while minimizing environmental impact.
 
 The role of policy cannot be overstated. Governments must invest in agricultural research, provide support for farmers transitioning to climate-resilient practices, and promote international cooperation on food security issues. Only through coordinated global action can we ensure adequate food supplies for future generations.""",
-        "created_at": datetime.utcnow()
+        "created_at": now_str
     }
     result2 = await db.sections.insert_one(section2)
     section2_id = str(result2.inserted_id)
