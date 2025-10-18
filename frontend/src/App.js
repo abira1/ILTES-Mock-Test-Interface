@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import '@/App.css';
 import { Homepage } from './components/Homepage';
-import { ExamTest } from './components/ExamTest';
+import ExamInterface from './components/exam/ExamInterface';
 import { AdminRouter } from './components/admin/AdminRouter';
 import { AuthProvider } from './contexts/AuthContext';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
@@ -10,6 +10,7 @@ import { StudentHome } from './components/student/StudentHome';
 import { CompleteProfile } from './components/student/CompleteProfile';
 import { WaitingForApproval } from './components/student/WaitingForApproval';
 import { StudentDashboard } from './components/student/StudentDashboard';
+import './styles/exam/exam-custom.css';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <AdminAuthProvider>
             <Routes>
               <Route path="/" element={<Homepage />} />
-              <Route path="/exam/:examId" element={<ExamTest />} />
+              <Route path="/exam/:examId" element={<ExamInterface />} />
               
               {/* Student routes - use AuthProvider (student context) */}
               <Route path="/student" element={<StudentHome />} />
