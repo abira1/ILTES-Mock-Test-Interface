@@ -368,6 +368,19 @@ export function TestManagement() {
           }}
         />
       )}
+
+      {showJsonImport && (
+        <ExamJsonImport
+          onClose={() => setShowJsonImport(false)}
+          onImportSuccess={handleJsonImportSuccess}
+        />
+      )}
+
+      {showAudioManager && (
+        <AudioUrlManager
+          onClose={() => setShowAudioManager(false)}
+        />
+      )}
     </div>
   );
 }
