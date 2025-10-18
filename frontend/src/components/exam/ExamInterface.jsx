@@ -141,13 +141,20 @@ const ExamInterface = ({ examId }) => {
     }
 
     try {
-      const { default: ExamFirebaseService } = await import('../../services/ExamFirebaseService');
-      await ExamFirebaseService.submitExam(examId, {
-        answers,
-        notes,
-        highlights,
-        submittedAt: new Date().toISOString()
+      const { default: BackendService } = await import('../../services/BackendService');
+      
+      // Submit to backend
+      await BackendService.createSubmission({
+        exam_id: examId,
+        user_id_or_session: 'anonymous-' + Date.now(),
+        answers: answers,
+        exam_type: exam.type || 'listening',
+        time_taken: exam.duration - (timeLeft || 0),
+        progress_percent: (Object.keys(answers).length / (exam.totalQuestions || 40)) * 100
       });
+      
+      // Clear progress from localStorage
+      localStorage.removeItem(`exam-progress-${examId}`);
       
       alert('Test submitted successfully!');
       window.location.href = '/student/dashboard';
