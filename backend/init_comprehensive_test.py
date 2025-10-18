@@ -110,7 +110,7 @@ The role of policy cannot be overstated. Governments must invest in agricultural
 Artificial intelligence (AI) is revolutionizing healthcare delivery. Machine learning algorithms can now analyze medical images with accuracy rivaling human experts. AI-powered diagnostic tools help doctors identify diseases earlier, improving treatment outcomes and saving lives.
 
 Despite these advances, challenges remain. Data privacy concerns, algorithmic bias, and the need for human oversight are critical issues that must be addressed. The integration of AI into healthcare requires careful ethical consideration and robust regulatory frameworks.""",
-        "created_at": datetime.utcnow()
+        "created_at": now_str
     }
     result4 = await db.sections.insert_one(section4)
     section4_id = str(result4.inserted_id)
