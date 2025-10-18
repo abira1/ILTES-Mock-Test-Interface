@@ -61,14 +61,29 @@ const ExamInterface = ({ examId }) => {
 
   const loadExam = async () => {
     try {
-      // Load exam from Firebase
-      const { default: ExamFirebaseService } = await import('../../services/ExamFirebaseService');
-      const examData = await ExamFirebaseService.getExam(examId);
-      setExam(examData);
+      // Load exam from Backend API
+      const { default: BackendService } = await import('../../services/BackendService');
+      const examData = await BackendService.getExamWithSectionsAndQuestions(examId);
       
-      // Load progress if exists
-      const progress = await ExamFirebaseService.loadProgress(examId);
-      if (progress) {
+      // Transform backend data structure to match component expectations
+      const transformedExam = {
+        id: examData.id,
+        title: examData.title,
+        type: examData.exam_type || 'listening',
+        duration: examData.duration_seconds || 3600,
+        audioUrl: examData.audio_url,
+        candidateName: 'Student',
+        candidateNumber: 'STU-12345',
+        totalQuestions: examData.question_count || 40,
+        sections: examData.sections || []
+      };
+      
+      setExam(transformedExam);
+      
+      // Load progress from localStorage (since we're not using Firebase for progress)
+      const savedProgress = localStorage.getItem(`exam-progress-${examId}`);
+      if (savedProgress) {
+        const progress = JSON.parse(savedProgress);
         setAnswers(progress.answers || {});
         setReviewMarked(progress.reviewMarked || []);
         setNotes(progress.notes || []);
