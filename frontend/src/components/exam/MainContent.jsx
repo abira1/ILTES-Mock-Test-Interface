@@ -66,9 +66,14 @@ const MainContent = forwardRef((
       onAnswerChange
     };
 
-    switch (question.type) {
+    const questionType = question.type?.toLowerCase().replace(/-/g, '_');
+
+    switch (questionType) {
       // Listening types
       case 'fill_in_gaps':
+      case 'fill_in_the_gaps':
+        return <FillInGaps {...props} />;
+      
       case 'form_completion':
       case 'table_completion':
         return <FillInGaps {...props} />;
