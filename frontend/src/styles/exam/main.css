@@ -186,7 +186,7 @@ p.info {
 }
 
 p.attention {
-    background-image: url("../images/main/iconAttention16.png");
+    /* background-image: url("../images/main/iconAttention16.png"); */
 }
 
 .textCentre {
