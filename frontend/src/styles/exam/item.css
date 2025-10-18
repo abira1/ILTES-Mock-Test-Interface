@@ -1312,7 +1312,7 @@ ul.list-square,
 /*
 [connect|class~=itemBody] [connect|class~=action],
 [connect|class~=itemBody] [connect|author-class~=action] {
-    /* background-image: url(../images/item/action-icon-16.png); */
+    background-image: none;
 }
 */
 
