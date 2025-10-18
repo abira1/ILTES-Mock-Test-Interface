@@ -1055,7 +1055,7 @@ body .ui-tooltip {
     border: 1px solid #aaaaaa/*{borderColorActive}*/
     ;
     background: #ffffff/*{bgColorActive}*/
-    url(../images/ui/ui-bg_glass_65_ffffff_1x400.png)/*{bgImgUrlActive}*/
+    /* url(../images/ui/ui-bg_glass_65_ffffff_1x400.png) *//*{bgImgUrlActive}*/
     50%/*{bgActiveXPos}*/
     50%/*{bgActiveYPos}*/
     repeat-x/*{bgActiveRepeat}*/
