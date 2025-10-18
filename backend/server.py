@@ -20,7 +20,12 @@ from fresh_qti_listening_test import create_fresh_qti_listening_test
 from auth_service import AuthService
 from ai_import_service import get_router as get_ai_import_router
 from track_service import get_router as get_track_router
-from question_type_schemas import detect_question_type, validate_question_structure
+from new_question_type_schemas import (
+    get_question_type_info,
+    get_grading_method,
+    is_auto_gradable,
+    get_all_question_types
+)
 from auto_import_handler import AutoImportHandler
 
 
