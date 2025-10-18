@@ -138,7 +138,7 @@ span[connect|function~=clickTimer] {
 
 #banner-controls a[connect|class~=helpLink] span,
 .help .toolbarButtonIcon span {
-    /* background: url("../images/banner/help-icon.png") */ no-repeat center center;
+    /* background: url("../images/banner/help-icon.png") no-repeat center center; */
     display: inline-block;
     width: 16px;
     height: 16px;

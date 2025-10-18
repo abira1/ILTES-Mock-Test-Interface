@@ -127,7 +127,7 @@
 }
 
 #access-toolbar .colours dt {
-    /* background: url(../img/iconColours.png) */ no-repeat center 2em;
+    /* background: url(../img/iconColours.png) no-repeat center 2em; */
 }
 
 #access-toolbar .colours b {
@@ -180,7 +180,7 @@
 }
 
 #access-toolbar .sound dt {
-    /* background: url(../img/iconSound.png) */ no-repeat center 2em;
+    /* background: url(../img/iconSound.png) no-repeat center 2em; */
 }
 
 #access-toolbar .sound a {

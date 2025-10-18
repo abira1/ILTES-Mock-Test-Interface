@@ -536,7 +536,7 @@ ul.list-square,
 
 [connect|class~=itemBody] h3.ui-accordion-header label {
     float: right;
-    /* background: url(../images/item/checkboxOff.png) */ no-repeat top right;
+    /* background: url(../images/item/checkboxOff.png) no-repeat top right; */
     display: inline-block;
     padding: 0.1em 30px 0.1em 0.3em;
     font-weight: normal;
