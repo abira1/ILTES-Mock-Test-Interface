@@ -93,43 +93,43 @@
 }
 
 .context-menu-item.icon-edit {
-    background-image: url(../images/main/page_white_edit.png);
+    /* background-image: url(../images/main/page_white_edit.png); */
 }
 
 .context-menu-item.icon-copy {
-    background-image: url(../images/main/page_white_copy.png);
+    /* background-image: url(../images/main/page_white_copy.png); */
 }
 
 .context-menu-item.icon-paste {
-    background-image: url(../images/main/page_white_paste.png);
+    /* background-image: url(../images/main/page_white_paste.png); */
 }
 
 .context-menu-item.icon-cut {
-    background-image: url(../images/main/cut.png);
+    /* background-image: url(../images/main/cut.png); */
 }
 
 .context-menu-item.icon-highlight {
-    background-image: url(../images/main/highlight.png);
+    /* background-image: url(../images/main/highlight.png); */
 }
 
 .context-menu-item.icon-clear {
-    background-image: url(../images/main/clear-highlight.png);
+    /* background-image: url(../images/main/clear-highlight.png); */
 }
 
 .context-menu-item.icon-clearAll {
-    background-image: url(../images/main/clearAll-highlight.png);
+    /* background-image: url(../images/main/clearAll-highlight.png); */
 }
 
 .context-menu-item.icon-save {
-    background-image: url(../images/main/save.png);
+    /* background-image: url(../images/main/save.png); */
 }
 
 .context-menu-item.icon-delete {
-    background-image: url(../images/main/page_white_delete.png);
+    /* background-image: url(../images/main/page_white_delete.png); */
 }
 
 .context-menu-item.icon-quit {
-    background-image: url(../images/main/door.png);
+    /* background-image: url(../images/main/door.png); */
 }
 
 /* vertically align inside labels */

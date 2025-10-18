@@ -327,15 +327,15 @@ ul.editActions li a:hover {
 }
 
 ul.editActions li a.copy {
-    background-image: url(../images/main/page_white_copy.png);
+    /* background-image: url(../images/main/page_white_copy.png); */
 }
 
 ul.editActions li a.paste {
-    background-image: url(../images/main/page_white_paste.png);
+    /* background-image: url(../images/main/page_white_paste.png); */
 }
 
 ul.editActions li a.cut {
-    background-image: url(../images/main/cut.png);
+    /* background-image: url(../images/main/cut.png); */
 }
 
 .hidden {
