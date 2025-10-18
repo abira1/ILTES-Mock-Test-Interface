@@ -51,6 +51,7 @@ async def init_comprehensive_test():
     
     # Create 4 sections
     sections = []
+    now_str = datetime.utcnow().isoformat()
     
     # SECTION 1: LISTENING (Questions 1-10)
     section1 = {
@@ -60,7 +61,7 @@ async def init_comprehensive_test():
         "type": "listening",
         "instructions": "Listen to the audio and answer questions 1-10. You will hear a conversation and various listening scenarios.",
         "passage_text": None,
-        "created_at": datetime.utcnow()
+        "created_at": now_str
     }
     result1 = await db.sections.insert_one(section1)
     section1_id = str(result1.inserted_id)
